@@ -1,0 +1,671 @@
+// =========================================================
+// Страницы кейсов (Figma: «МОЙ 5» ALEXOIL, «МОЙ 4» KIDSUP, «МОЙ 18» USCODE)
+// Общие блоки: первый экран-сцена, разделы «Задача / Проблема / Решение»,
+// ряды экранов, результаты, карточка «Следующий кейс».
+// =========================================================
+
+.text-2 {
+  color: #575757;
+}
+
+// ---------- Первый экран ----------
+.scene {
+  background: var(--soft-gradient);
+  position: relative;
+  height: 969px;
+  overflow: hidden;
+}
+
+.scene__inner {
+  position: relative;
+  height: 100%;
+}
+
+.scene__tags {
+  position: absolute;
+  top: 77px;
+  left: var(--gutter);
+  gap: 8px;
+}
+
+.tag--white {
+  background: var(--color-white);
+}
+
+.scene__counter {
+  position: absolute;
+  top: 77px;
+  right: var(--gutter);
+}
+
+.scene__title {
+  position: absolute;
+  top: 132px;
+  left: 29px;
+  font-size: var(--fs-scene);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.scene__desc {
+  position: absolute;
+  top: 375px;
+  left: 38px;
+  width: 560px;
+  color: var(--color-text);
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.scene__stats {
+  position: absolute;
+  top: 621px;
+  left: 41px;
+  display: flex;
+  gap: 20px;
+}
+
+.scene__media {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+// ---------- Белые карточки (статистика и плавающие подписи) ----------
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 26px;
+  border-radius: 28px;
+  background: var(--color-white);
+  box-shadow: 0 18px 44px rgba(20, 20, 26, 0.09);
+}
+
+.card__value {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-ink);
+
+  svg {
+    flex-shrink: 0;
+    width: 51px;
+    height: 34px;
+  }
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-ink);
+}
+
+.card__text {
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.card--stat {
+  width: 340px;
+}
+
+.card--float {
+  position: absolute;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card--float { animation: none; }
+}
+
+// ---------- Основное содержимое (белый лист со скруглением сверху) ----------
+.case-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 168px;
+  margin-top: -69px;
+  padding-top: 140px;
+  border-radius: 68px 68px 0 0;
+  background: var(--color-white);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.section-title--xl {
+  font-size: 80px;
+  white-space: nowrap;
+}
+
+.body-text {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+// Задача / Ограничения
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 var(--gutter);
+}
+
+.intro__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.intro__content {
+  flex: 0 1 660px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 19px;
+  white-space: nowrap;
+}
+
+// Проблема / Решение в две колонки
+.ps {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 var(--gutter) 60px;
+}
+
+.ps__col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 0 1 660px;
+
+  .body-text {
+    max-width: 651px;
+  }
+}
+
+.ps__col + .ps__col .body-text {
+  max-width: 615px;
+}
+
+// Ряд из шести экранов
+.screens {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--gutter);
+}
+
+.screen {
+  position: relative;
+  flex-shrink: 0;
+  width: 191px;
+  height: 401px;
+
+  > img {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 200px;
+    height: 412px;
+    max-width: none;
+    transform: translateX(-50%);
+    transition: transform 0.5s var(--ease);
+  }
+
+  &:hover > img {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+// Анимация капли поверх экрана «Заправляемся»
+.screen__overlay {
+  position: absolute;
+  top: 138px;
+  left: 6px;
+  width: 179px;
+  height: 179px;
+  border-radius: 6px;
+  mix-blend-mode: lighten;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+// Результаты
+.results {
+  display: flex;
+  align-items: flex-start;
+  gap: min(260px, 18vw);
+  padding: 60px var(--gutter) 0;
+}
+
+.results__title {
+  flex: 0 1 440px;
+}
+
+.results__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 660px;
+  color: var(--color-heading);
+}
+
+.result__label {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.result__value {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 64px;
+  white-space: nowrap;
+}
+
+.result__note {
+  color: #000;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+// Текст слева + карточка с экраном справа
+.split {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.split__text {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  flex: 0 1 700px;
+  padding: 8px 20px 0 var(--gutter);
+}
+
+.split__block {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  .body-text {
+    max-width: 651px;
+  }
+}
+
+.split__media {
+  background: var(--soft-gradient);
+  position: relative;
+  flex: 0 1 659px;
+  height: 674px;
+  border-radius: 56px;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 301px;
+    height: 619px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// ---------- Следующий кейс ----------
+.next-case {
+  padding: 24px var(--gutter) 0;
+}
+
+.next-case__card {
+  background: var(--soft-gradient);
+  position: relative;
+  display: block;
+  height: 600px;
+  border-radius: 56px;
+  overflow: hidden;
+}
+
+.next-case__tags {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.next-case__title {
+  position: absolute;
+  top: 84px;
+  left: 31.79px;
+  font-size: var(--fs-case);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.next-case__desc {
+  position: absolute;
+  top: 278px;
+  left: 40px;
+  width: 420px;
+  color: var(--color-text);
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.next-case__btn {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+}
+
+.next-case__shot {
+  position: absolute;
+  width: 238px;
+  height: 491px;
+  max-width: none;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s var(--ease);
+}
+
+.next-case__card:hover .next-case__shot {
+  transform: translateY(-12px);
+}
+
+// Анимация «Смотреть кейс» при наведении на всю карточку
+.next-case__card:hover .btn::before {
+  opacity: 1;
+}
+
+.next-case__card:hover .icon-arrow {
+  --arrow-diag: 0;
+  --arrow-right: 1;
+  width: 28px;
+}
+
+// =========================================================
+// ALEXOIL
+// =========================================================
+.page-alexoil {
+  .scene__media {
+    top: 39px;
+    left: 49.03%;
+    width: min(665px, 46.18vw);
+  }
+
+  .card--bonus {
+    top: 188px;
+    left: 74.7%;
+    width: 290px;
+    rotate: 2deg;
+  }
+
+  .card--search {
+    top: 430px;
+    left: 44%;
+    width: 250px;
+    rotate: -3deg;
+    animation-delay: -3s;
+  }
+
+  .next-case__shot--1 { top: 176px; left: 40.81%; }
+  .next-case__shot--2 { top: 124px; left: 60.15%; }
+  .next-case__shot--3 { top: 176px; left: 79.49%; }
+}
+
+// ---------- Карточки «глав» (KIDSUP: 04–06) ----------
+.chapters {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 var(--gutter);
+}
+
+.chapter {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+  padding: 32px;
+  border-radius: 40px;
+  background: #f7f7f9;
+}
+
+.chapter__title {
+  line-height: 1;
+}
+
+.chapter__block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.chapter__label {
+  color: var(--color-heading);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.chapter--lg .chapter__block {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.split__media--tall {
+  height: 700px;
+}
+
+.result--note .result__note {
+  max-width: 502px;
+}
+
+// Превью веб-платформы в карточке следующего кейса
+.next-case__screen {
+  position: absolute;
+  top: 150px;
+  left: 48.9%;
+  width: 48.16%;
+  max-width: none;
+  aspect-ratio: 655 / 409;
+  border-radius: 24px 24px 16px 16px;
+  object-fit: cover;
+  object-position: top left;
+  filter: drop-shadow(0 20px 30px rgba(13, 13, 14, 0.18));
+  transition: transform 0.6s var(--ease);
+}
+
+.next-case__card:hover .next-case__screen {
+  transform: translateY(-12px);
+}
+
+// =========================================================
+// KIDSUP
+// =========================================================
+.page-kidsup {
+  .scene__media {
+    top: 39px;
+    left: 49.1%;
+    width: min(665px, 46.18vw);
+  }
+
+  .scene__desc {
+    color: #575757;
+  }
+
+  .scene__stats {
+    top: 615px;
+  }
+
+  .card--days {
+    top: 188px;
+    left: 74.7%;
+    width: 290px;
+    rotate: 2deg;
+  }
+
+  .card--pro {
+    top: 436px;
+    left: 46.1%;
+    width: 250px;
+    rotate: -3deg;
+    animation-delay: -3s;
+  }
+}
+
+// ---------- Большая карточка со скриншотом веб-интерфейса (USCODE) ----------
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 var(--gutter);
+}
+
+.showcase__card {
+  position: relative;
+  aspect-ratio: 1358 / 812;
+  border-radius: 56px;
+  background: radial-gradient(80% 90% at 50% 45%, #ffffff 0%, #f3f3f6 55%, #e7e7eb 100%);
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 6.9%;
+    left: 8.76%;
+    width: 82.47%;
+    border-radius: 20px;
+    box-shadow: 0 24px 48px rgba(13, 13, 14, 0.16);
+    transition: transform 0.6s var(--ease);
+  }
+
+  &:hover img {
+    transform: translateY(-8px);
+  }
+}
+
+// =========================================================
+// USCODE
+// =========================================================
+.page-uscode {
+  .scene__head {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    width: 626px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 19px;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+  .scene__head .tags {
+    gap: 8px;
+  }
+
+  .scene__head .scene__title {
+    position: static;
+    font-size: min(240px, 16.67vw);
+  }
+
+  .scene__head .scene__desc {
+    position: static;
+    width: auto;
+  }
+
+  .scene__media {
+    top: 412px;
+    left: 9.44%;
+    width: 81.11%;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .card--float {
+    width: 262px;
+    gap: 9px;
+    padding: 16px 20px;
+    border-radius: 22px;
+  }
+
+  .card--float .card__title {
+    font-size: 39px;
+  }
+
+  .card--float .card__text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .card--env {
+    top: 240px;
+    left: 4.3%;
+    rotate: -4deg;
+  }
+
+  .card--practice {
+    top: 213px;
+    left: 79.6%;
+    rotate: 4deg;
+    animation-delay: -3s;
+  }
+}

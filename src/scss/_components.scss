@@ -1,0 +1,216 @@
+// ---------- Иконка-стрелка ----------
+// Одна SVG: ↗ в покое, → при наведении. Ширина растёт 20 → 28 (как в UI kit),
+// а сами линии переключаются через CSS-переменные — они проходят внутрь <use>.
+.icon-arrow {
+  --arrow-diag: 1;
+  --arrow-right: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transition: width 0.3s var(--ease);
+}
+
+.arrow-diag,
+.arrow-right {
+  transition: opacity 0.25s ease;
+}
+
+.arrow-diag  { opacity: var(--arrow-diag); }
+.arrow-right { opacity: var(--arrow-right); }
+
+// Состояние «наведено» для стрелки внутри любого интерактивного элемента
+.btn:hover .icon-arrow,
+.nav__link--accent:hover .icon-arrow,
+.pill-link:hover .icon-arrow {
+  --arrow-diag: 0;
+  --arrow-right: 1;
+  width: 28px;
+}
+
+// ---------- Кнопка (чёрная, 56px) ----------
+// Hover из UI kit: градиент #18181b → #3a3a3d снизу вверх и стрелка →.
+.btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 28px;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(2.4deg, #18181b 12.4%, #3a3a3d 116.1%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// «Смотреть работы» / «Написать в Telegram»: при наведении ещё и увеличивается
+// (в UI kit 253×56 → 284×61, т. е. ×1.09).
+.btn--grow {
+  transform-origin: left center;
+
+  &:hover {
+    transform: scale(1.09);
+  }
+
+  &:active {
+    transform: scale(1.06);
+  }
+}
+
+// ---------- Пилюля-тег (серая, 36px) ----------
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+  color: var(--color-heading);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+// ---------- Плавающая подпись (белая с тенью) ----------
+.float-label {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 39px;
+  background: var(--color-white);
+  box-shadow: var(--shadow-float);
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+// ---------- Белая пилюля-ссылка (контакты) ----------
+.pill-link {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  box-shadow: var(--shadow-pill);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s;
+
+  .icon-arrow {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover .icon-arrow {
+    width: 22px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(20, 20, 26, 0.22);
+  }
+}
+
+// ---------- Плавающая навигация ----------
+.nav {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+  backdrop-filter: blur(8px);
+  transform: translateX(-50%);
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.25s ease;
+
+  .icon-arrow {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover .icon-arrow {
+    width: 22px;
+  }
+
+  &:hover {
+    background: #2b2a2a;
+  }
+}
+
+.nav__link--accent {
+  // Ширина фиксирована (как в UI kit — 124px), чтобы меню не «прыгало»,
+  // когда стрелка при наведении становится длиннее.
+  width: 124px;
+  justify-content: flex-start;
+  background: var(--color-white);
+  color: var(--color-ink);
+
+  &:hover {
+    background: #ececec;
+  }
+}

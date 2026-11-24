@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KIDSUP — кейс | Марина Савченкова</title>
+  <meta name="description" content="Кейс KIDSUP: приложение для родителей с развивающими занятиями, картой навыков и библиотекой игр.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Sofia+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+  <script type="module" src="./src/js/main.js"></script>
+</head>
+<body class="page-case page-kidsup">
+
+  <!-- Стрелка: ↗ в обычном состоянии, → при наведении (см. UI kit) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="arrow">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path class="arrow-diag" d="M6 14 14 6M7.5 6H14v6.5"/>
+        <path class="arrow-right" d="M3 10h21M18 4l6 6-6 6"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- Мобильная шапка: кнопка меню -->
+  <header class="topbar">
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Плавающая навигация -->
+  <nav class="nav" id="site-nav" aria-label="Основная навигация">
+    <a class="nav__link" href="./index.html">На главную</a>
+    <a class="nav__link" href="#">CV</a>
+    <a class="nav__link" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="nav__link" href="mailto:">Email</a>
+    <a class="nav__link nav__link--accent" href="#" target="_blank" rel="noopener">
+      Telegram
+      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+    </a>
+  </nav>
+
+
+
+  <main class="container">
+
+    <!-- Первый экран -->
+    <section class="scene">
+      <div class="scene__inner">
+        <ul class="tags scene__tags">
+          <li class="tag tag--white">Мобильное приложение</li>
+          <li class="tag tag--white">Оптимизация UX</li>
+          <li class="tag tag--white">B2C</li>
+          <li class="tag tag--white">2025</li>
+        </ul>
+        <p class="case__counter scene__counter">02 / 03</p>
+
+        <img class="scene__media" src="./src/assets/img/kidsup/hero-phone.webp" width="665" height="825" alt="Онбординг приложения KidsUp" fetchpriority="high">
+
+        <h1 class="scene__title display">KidsUp</h1>
+        <p class="scene__desc">Приложение помогает родителям заниматься с ребёнком: программа занятий на день, карта развития навыков и библиотека игр, сказок и мультфильмов. Монетизация — подписка PRO</p>
+
+        <div class="card card--float card--days">
+          <p class="card__title">2 дня</p>
+          <p class="card__text">вы беспрерывно занимаетесь</p>
+        </div>
+        <div class="card card--float card--pro">
+          <p class="card__title">KidsUp PRO</p>
+          <p class="card__text">Открыт доступ ко всем материалам</p>
+        </div>
+
+        <div class="scene__stats">
+          <div class="card card--stat">
+            <p class="card__value">61 <svg viewBox="0 0 51 34" fill="none" aria-hidden="true"><path d="M6 17h38M32 6l12 11-12 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> 74%</p>
+            <p class="card__text">родителей доходят до конца анкеты</p>
+          </div>
+          <div class="card card--stat">
+            <p class="card__value">≈ +20%</p>
+            <p class="card__text">к старту бесплатного периода на iOS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="case-body">
+
+      <!-- Задача и ограничения -->
+      <section class="intro">
+        <div class="intro__row">
+          <h2 class="section-title section-title--xl">Задача</h2>
+          <p class="intro__content body-text text-2">В марте 2025 года команда переносила приложение на iOS и обновляла подписку, сохраняя механики Android. Цели: повысить конверсию в пробный период и PRO, частоту занятий и удержание, персонализировать контент</p>
+        </div>
+        <div class="intro__row">
+          <h2 class="section-title section-title--xl">Ограничения</h2>
+          <ul class="intro__content chips">
+            <li class="chip">Действующий продукт и стабильная Android-версия</li>
+            <li class="chip">Релизы каждые 3–7 дней</li>
+            <li class="chip">Дети от 6 месяцев до 6 лет</li>
+            <li class="chip">Занятия по структуре методистов</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Онбординг и анкетирование -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Родители отваливались на этапе регистрации, а онбординг смешивал знакомство с продуктом и анкетирование. Из-за этого пользователь не успевал понять ценность приложения и сталкивался с лишними шагами до начала занятий</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Разделила онбординг и анкетирование: сначала раскрыла ценность приложения и познакомила с интерфейсом, затем предложила заполнить профиль ребёнка. Анкетирование стало опциональным, чтобы быстрее перейти к занятиям</p>
+          </div>
+        </div>
+        <div class="screens">
+          <figure class="screen"><img src="./src/assets/img/kidsup/onb-1.webp" width="200" height="412" alt="Онбординг: ценность приложения" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/onb-2.webp" width="200" height="412" alt="Карта развития ребёнка" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/onb-3.webp" width="200" height="412" alt="Экран подписки со скидкой" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/onb-4.webp" width="200" height="412" alt="Знакомство с интерфейсом" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/onb-5.webp" width="200" height="412" alt="Подсказки на главном экране" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/onb-6.webp" width="200" height="412" alt="Первое занятие" loading="lazy"></figure>
+        </div>
+        <div class="results">
+          <h2 class="section-title results__title">Результаты</h2>
+          <div class="results__list">
+            <div class="result">
+              <p class="result__label">Выросла доля родителей завершивших анкетирование</p>
+              <p class="result__value">61% → 74%</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Программа дня -->
+      <section class="split">
+        <div class="split__text">
+          <div class="split__block">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Родителю было сложно понять объём занятий на день, свой прогресс и выбрать подходящую нагрузку</p>
+          </div>
+          <div class="split__block">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Собрала программу дня как понятное обещание на день: добавила кольцо прогресса, выбор нагрузки — 3, 5 или 7 занятий — и стрик для поддержания регулярности</p>
+          </div>
+          <div class="split__block">
+            <h2 class="section-title">Результаты</h2>
+            <p class="result__note">Программа стала понятнее и предсказуемее для родителя: появился ориентир по объёму занятий, видимый прогресс и мотивация заниматься регулярно</p>
+          </div>
+        </div>
+        <div class="split__media">
+          <img src="./src/assets/img/kidsup/program.webp" width="301" height="619" alt="Экран «Программа дня» с кольцом прогресса" loading="lazy">
+        </div>
+      </section>
+
+      <!-- Замена занятий -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Родители сталкивались с повторяющимися занятиями и закрывали приложение, если предложенная игра не подходила по сложности, интересу или необходимым материалам</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Добавила замену занятий с выбором причины: сложность, отсутствие интереса, материалов или навыков. Причины учитываются при дальнейшем подборе, а замена ограничена двумя разами в день</p>
+          </div>
+        </div>
+        <div class="screens">
+          <figure class="screen"><img src="./src/assets/img/kidsup/swap-1.webp" width="200" height="412" alt="Программа дня" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/swap-2.webp" width="200" height="412" alt="Карточка занятия" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/swap-3.webp" width="200" height="412" alt="Выбор причины замены" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/swap-4.webp" width="200" height="412" alt="Подбор замены" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/swap-5.webp" width="200" height="412" alt="Новое занятие" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/kidsup/swap-6.webp" width="200" height="412" alt="Список занятий на замену" loading="lazy"></figure>
+        </div>
+        <div class="results">
+          <h2 class="section-title results__title">Результаты</h2>
+          <div class="results__list">
+            <div class="result">
+              <p class="result__label">Доля занятий, доведённых до «Выполнено», выросла</p>
+              <p class="result__value">+ 25%</p>
+            </div>
+            <div class="result">
+              <p class="result__label">Доля сессий, завершавшихся на первой карточке, снизилась</p>
+              <p class="result__value">в 2 раза</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Пейволл -->
+      <section class="split">
+        <div class="split__text">
+          <div class="split__block">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Конверсия в бесплатный период не росла. Экран подписки выглядел как посадочная страница: преимущества, цены, скидки и отзывы были собраны вместе, а родитель видел предложение до того, как успевал заинтересоваться развитием ребёнка.</p>
+          </div>
+          <div class="split__block">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Разделила пейволл на два экрана: сначала преимущества PRO, затем тарифы и цены. Перенесла точку входа в «Карту развития», где родитель уже заинтересован в прогрессе ребёнка.</p>
+          </div>
+          <div class="split__block">
+            <h2 class="section-title">Результаты</h2>
+            <div class="result result--note">
+              <p class="result__note">Конверсия в старт бесплатного периода на iOS выросла примерно</p>
+              <p class="result__value">+ 20%</p>
+            </div>
+          </div>
+        </div>
+        <div class="split__media split__media--tall">
+          <img src="./src/assets/img/kidsup/paywall.webp" width="301" height="619" alt="Экран подписки KidsUp PRO со скидкой" loading="lazy">
+        </div>
+      </section>
+
+      <!-- Главы 04–06 -->
+      <section class="chapters">
+        <article class="chapter chapter--lg">
+          <h2 class="section-title chapter__title">Подбор по оценкам родителя</h2>
+          <div class="chapter__block">
+            <p class="chapter__label">Проблема</p>
+            <p>Оценка занятия и отметка «Выполнено» не использовались для улучшения дальнейшего подбора, поэтому программа не учитывала опыт родителя</p>
+          </div>
+          <div class="chapter__block">
+            <p class="chapter__label">Решение</p>
+            <p>Связала оценку и выполнение занятия с подбором контента: данные стали учитываться при формировании следующих рекомендаций</p>
+          </div>
+          <div class="chapter__block">
+            <p class="chapter__label">Результат</p>
+            <p>Подбор стал адаптироваться под обратную связь родителя и фактическое взаимодействие с занятиями</p>
+          </div>
+        </article>
+        <article class="chapter">
+          <h2 class="section-title chapter__title">Лиги родителей</h2>
+          <div class="chapter__block">
+            <p class="chapter__label">Проблема</p>
+            <p>В продукте не хватало механики, которая мотивировала бы родителей регулярно заниматься с ребёнком и возвращаться в приложение</p>
+          </div>
+          <div class="chapter__block">
+            <p class="chapter__label">Решение</p>
+            <p>Добавила лиги родителей — соревновательную механику с уровнями от бронзовой до легендарной, где взрослые соревнуются по регулярности занятий</p>
+          </div>
+        </article>
+        <article class="chapter">
+          <h2 class="section-title chapter__title">Фильтры по ситуации</h2>
+          <div class="chapter__block">
+            <p class="chapter__label">Проблема</p>
+            <p>В библиотеке было много контента, но родителю было сложно быстро найти подходящее занятие под конкретную ситуацию</p>
+          </div>
+          <div class="chapter__block">
+            <p class="chapter__label">Решение</p>
+            <p>Добавила фильтры по ситуации — дома, на прогулке, в дороге, без инвентаря — а также по длительности, возрасту и рейтингу</p>
+          </div>
+          <div class="chapter__block">
+            <p class="chapter__label">Результат</p>
+            <p>В отзывах появились положительные упоминания фильтров: родители отмечали, что стало проще находить игры под конкретную ситуацию, например для поездки</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Следующий кейс -->
+      <section class="next-case">
+        <a class="next-case__card" href="./uscode.html">
+          <ul class="tags next-case__tags">
+            <li class="tag tag--white">Следующий кейс</li>
+            <li class="tag tag--white">Веб-платформа</li>
+            <li class="tag tag--white">2024</li>
+          </ul>
+          <h2 class="next-case__title display">Uscode</h2>
+          <p class="next-case__desc">Учебная платформа для разработчиков и вайбкодеров.</p>
+          <img class="next-case__screen" src="./src/assets/img/next/uscode.webp" width="655" height="409" alt="" loading="lazy">
+          <span class="btn next-case__btn">Смотреть кейс <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
+      </section>
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+      <span class="tag">Контакты</span>
+      <div class="contacts__title-wrap">
+        <h2 class="contacts__title display">Напишите мне</h2>
+        <a class="pill-link contacts__pill--tg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a class="pill-link contacts__pill--cv" href="#">CV</a>
+        <a class="pill-link contacts__pill--in" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и возможные форматы взаимодействия</p>
+      <a class="btn btn--grow contacts__cta" href="#" target="_blank" rel="noopener">
+        Написать в Telegram
+        <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+    </section>
+
+    </div>
+  </main>
+</body>
+</html>

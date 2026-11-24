@@ -1,0 +1,30 @@
+// Токены из Figma (переменные файла «Сайт портфолио»)
+:root {
+  --color-white: #ffffff;
+  --color-ink: #18181b;      // color/ink — кнопки, навигация
+  --color-heading: #181819;  // Text — заголовки и пилюли
+  --color-text: #58585a;     // color/text — основной текст
+  --color-soft: #f3f3f6;     // color/soft — фон пилюль
+  --color-muted: #868688;    // счётчик «02 / 03»
+
+  --font-display: 'Sofia Sans Extra Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Lato', system-ui, sans-serif;
+
+  --radius-pill: 999px;
+  --shadow-float: 0 12px 18px rgba(0, 0, 0, 0.16);
+  --shadow-pill: 0 10px 30px rgba(20, 20, 26, 0.16);
+
+  --container: 1440px;
+  --gutter: 40px;
+
+  // Крупные заголовки масштабируются от ширины 1440 (вниз), выше — фикс.
+  --fs-hero: min(308px, 21.39vw);
+  --fs-case: min(200px, 13.89vw);
+  --fs-scene: min(260px, 18.06vw);
+  --fs-contact: min(272.49px, 18.92vw);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  // Светлый радиальный градиент сцены и карточек кейсов
+  --soft-gradient: radial-gradient(80% 90% at 70% 45%, #ffffff 0%, #f3f3f6 55%, #e7e7eb 100%);
+}

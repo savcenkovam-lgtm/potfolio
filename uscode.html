@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USCODE — кейс | Марина Савченкова</title>
+  <meta name="description" content="Кейс USCODE: учебная платформа для разработчиков и вайбкодеров с геймификацией и симуляцией рабочей среды.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Sofia+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+  <script type="module" src="./src/js/main.js"></script>
+</head>
+<body class="page-case page-uscode">
+
+  <!-- Стрелка: ↗ в обычном состоянии, → при наведении (см. UI kit) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="arrow">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path class="arrow-diag" d="M6 14 14 6M7.5 6H14v6.5"/>
+        <path class="arrow-right" d="M3 10h21M18 4l6 6-6 6"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- Мобильная шапка: кнопка меню -->
+  <header class="topbar">
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Плавающая навигация -->
+  <nav class="nav" id="site-nav" aria-label="Основная навигация">
+    <a class="nav__link" href="./index.html">На главную</a>
+    <a class="nav__link" href="#">CV</a>
+    <a class="nav__link" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="nav__link" href="mailto:">Email</a>
+    <a class="nav__link nav__link--accent" href="#" target="_blank" rel="noopener">
+      Telegram
+      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+    </a>
+  </nav>
+
+
+
+  <main class="container">
+
+    <!-- Первый экран -->
+    <section class="scene">
+      <div class="scene__inner">
+        <div class="scene__head">
+          <ul class="tags">
+            <li class="tag tag--white">Веб-платформа</li>
+            <li class="tag tag--white">Новый продукт</li>
+            <li class="tag tag--white">B2C</li>
+            <li class="tag tag--white">2024</li>
+          </ul>
+          <h1 class="scene__title display">Uscode</h1>
+          <p class="scene__desc">Учебная платформа для разработчиков и вайбкодеров с элементами геймификации и симуляцией рабочей среды</p>
+        </div>
+        <p class="case__counter scene__counter">03 / 03</p>
+
+        <div class="card card--float card--env">
+          <p class="card__title">Рабочая среда</p>
+          <p class="card__text">Погружение в рабочие процессы через игровые сценарии</p>
+        </div>
+        <div class="card card--float card--practice">
+          <p class="card__title">Практика</p>
+          <p class="card__text">Закрепление навыков на реальных задачах</p>
+        </div>
+
+        <img class="scene__media" src="./src/assets/img/uscode/hero-kanban.webp" width="1168" height="557" alt="Канбан-доска платформы USCODE" fetchpriority="high">
+      </div>
+    </section>
+
+    <div class="case-body">
+
+      <!-- Задача и ограничения -->
+      <section class="intro">
+        <div class="intro__row">
+          <h2 class="section-title section-title--xl">Задача</h2>
+          <p class="intro__content body-text text-2">Разработать интерфейс учебной платформы для разработчиков и вайбкодеров, объединив практическое обучение, игровые механики и симуляцию реальной рабочей среды. Создать целостный пользовательский опыт, который помогает осваивать навыки и погружаться в рабочие процессы</p>
+        </div>
+        <div class="intro__row">
+          <h2 class="section-title section-title--xl">Ограничения</h2>
+          <ul class="intro__content chips">
+            <li class="chip">Несколько функциональных модулей</li>
+            <li class="chip">Единая система навигации</li>
+            <li class="chip">Согласованность игровых и рабочих механик</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Каталог практики -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Учебная программа не всегда позволяет сосредоточиться на конкретном навыке, который пользователь хочет подтянуть</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Создала каталог практики с поиском заданий по навыкам. Пользователь выбирает задачу, изучает условие и пример решения, пишет код и отправляет на ревью</p>
+          </div>
+        </div>
+        <div class="showcase">
+          <figure class="showcase__card"><img src="./src/assets/img/uscode/catalog.webp" width="1120" height="700" alt="Каталог практики с фильтрами по темам и сложности" loading="lazy"></figure>
+          <figure class="showcase__card"><img src="./src/assets/img/uscode/task.webp" width="1120" height="700" alt="Окно задания с условием и примером кода" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <!-- Канбан-доска -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Учебные задачи сложно воспринимать как часть реального рабочего процесса без привычных инструментов управления задачами</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Добавила канбан-доску с задачами и статусами, чтобы пользователь мог отслеживать ход работы и практиковать командные процессы</p>
+          </div>
+        </div>
+        <div class="showcase">
+          <figure class="showcase__card"><img src="./src/assets/img/uscode/kanban.webp" width="1120" height="700" alt="Канбан-доска с задачами по статусам" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <!-- Мессенджер -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Необходимость общаться с кураторами и другими учащимися в процессе обучения</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Добавила встроенный мессенджер для обсуждения заданий, обмена опытом и получения обратной связи</p>
+          </div>
+        </div>
+        <div class="showcase">
+          <figure class="showcase__card"><img src="./src/assets/img/uscode/messenger.webp" width="1120" height="700" alt="Встроенный мессенджер с обсуждением кода" loading="lazy"></figure>
+        </div>
+      </section>
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+      <span class="tag">Контакты</span>
+      <div class="contacts__title-wrap">
+        <h2 class="contacts__title display">Напишите мне</h2>
+        <a class="pill-link contacts__pill--tg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a class="pill-link contacts__pill--cv" href="#">CV</a>
+        <a class="pill-link contacts__pill--in" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и возможные форматы взаимодействия</p>
+      <a class="btn btn--grow contacts__cta" href="#" target="_blank" rel="noopener">
+        Написать в Telegram
+        <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+    </section>
+
+    </div>
+  </main>
+</body>
+</html>

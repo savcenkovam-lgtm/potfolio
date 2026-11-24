@@ -1,0 +1,644 @@
+// =========================================================
+// Мобильная версия (Figma: «Мобильная версия», ширина 360)
+// Включается на экранах до 767px.
+// =========================================================
+
+// На десктопе мобильные элементы скрыты
+.topbar,
+.panel__mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 12px;
+    --fs-mobile-hero: 80px;
+  }
+
+  // ---------- Шапка с «бургером» и меню ----------
+  .topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 110;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 32px;
+    padding: 0 10px 0 12px;
+  }
+
+  .burger {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-right: -6px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      left: 8px;
+      width: 16px;
+      height: 1.5px;
+      border-radius: 1px;
+      background: var(--color-heading);
+      transition: transform 0.3s var(--ease), opacity 0.2s;
+    }
+
+    span:nth-child(1) { top: 12px; }
+    span:nth-child(2) { top: 15.5px; }
+    span:nth-child(3) { top: 19px; }
+  }
+
+  .menu-open .burger {
+    position: fixed;
+    top: 0;
+    right: 10px;
+
+    span { background: var(--color-white); }
+    span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-3.5px) rotate(-45deg); }
+  }
+
+  // Плавающее меню на телефоне превращается в выпадающее
+  .nav {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 44px 12px 16px;
+    border-radius: 0 0 28px 28px;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform 0.35s var(--ease), visibility 0s 0.35s;
+  }
+
+  .menu-open .nav {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.35s var(--ease);
+  }
+
+  .nav__link {
+    justify-content: center;
+    height: 48px;
+  }
+
+  .nav__link--accent {
+    width: auto;
+    justify-content: center;
+  }
+
+  // ---------- Общие компоненты ----------
+  .btn {
+    gap: 12px;
+    height: 40px;
+    padding: 0 28px;
+    font-size: 16px;
+    line-height: 24px;
+
+    .icon-arrow {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .btn:hover .icon-arrow {
+    width: 20px;
+  }
+
+  .btn--grow:hover,
+  .btn--grow:active {
+    transform: none;
+  }
+
+  .tags {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .tag {
+    height: 24px;
+    padding: 0 12px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  // ---------- Главная ----------
+  .page-home main {
+    gap: 88px;
+    padding-top: 32px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 0 var(--gutter);
+  }
+
+  .hero__photo {
+    position: static;
+    order: -1;
+    width: 100%;
+    margin-top: 10px;
+    aspect-ratio: 336 / 420;
+    border-radius: 36px;
+
+    img {
+      object-position: center 30%;
+    }
+  }
+
+  .hero__title-wrap {
+    margin: 30px 0 0 -3px;
+    font-size: var(--fs-mobile-hero);
+  }
+
+  .hero__title {
+    padding-top: 0;
+    line-height: 0.84;
+  }
+
+  .hero .float-label {
+    display: none;
+  }
+
+  .hero__lead {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .hero__cta {
+    margin: 32px 0 0;
+  }
+
+  .hero__cta,
+  .case .btn,
+  .contacts__cta {
+    width: 100%;
+  }
+
+  .cases {
+    gap: 88px;
+  }
+
+  // На телефоне шапка проекта «разбирается», чтобы кнопка встала под картинку
+  .case {
+    gap: 0;
+  }
+
+  .case__head,
+  .case__intro,
+  .case__aside {
+    display: contents;
+  }
+
+  .case .tags   { order: 1; }
+  .case__title  { order: 2; }
+  .case__desc   { order: 3; }
+  .case .panel  { order: 4; }
+  .case .btn    { order: 5; }
+
+  .case__counter {
+    display: none;
+  }
+
+  .case__title {
+    margin-top: 8px;
+    font-size: 80px;
+    line-height: 80px;
+  }
+
+  .case__desc {
+    width: auto;
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .case .panel {
+    margin-top: 28px;
+  }
+
+  .case .btn {
+    margin-top: 36px;
+  }
+
+  .panel {
+    aspect-ratio: 336 / 423;
+    border-radius: 40px;
+
+    video {
+      display: none;
+    }
+  }
+
+  .panel__mobile {
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    width: 224px;
+    max-width: none;
+    transform: translateX(-50%);
+  }
+
+  // Окно браузера с канбан-доской (USCODE)
+  .browser {
+    top: 50%;
+    left: 33px;
+    width: 552px;
+    height: 318px;
+    border-radius: 20px;
+    background: #1b1b1d;
+    overflow: hidden;
+    transform: translateY(-50%);
+
+    img {
+      position: absolute;
+      top: 23.4px;
+      left: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 6px;
+    }
+  }
+
+  .browser__dots {
+    position: absolute;
+    top: 8px;
+    left: 11.7px;
+    display: flex;
+    gap: 5.1px;
+
+    i {
+      width: 7.3px;
+      height: 7.3px;
+      border-radius: 50%;
+      background: #5e5e5e;
+    }
+  }
+
+  // ---------- Контакты ----------
+  .contacts {
+    padding: 0 var(--gutter) 40px;
+  }
+
+  .contacts__title-wrap {
+    width: 100%;
+    margin: 12px 0 0 -4px;
+    font-size: 90px;
+  }
+
+  .contacts__title {
+    width: 336px;
+    max-width: 100%;
+    line-height: 80px;
+    white-space: normal;
+  }
+
+  .contacts .pill-link {
+    display: none;
+  }
+
+  .contacts__lead {
+    position: absolute;
+    top: 119px;
+    left: 161px;
+    right: var(--gutter);
+    max-width: 187px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .contacts__cta {
+    margin-top: 20px;
+  }
+
+  // =========================================================
+  // Кейсы
+  // =========================================================
+  .scene {
+    height: 679px;
+  }
+
+  .scene__tags {
+    top: 60px;
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+
+  .scene__counter,
+  .card--float,
+  .chapters,
+  .next-case {
+    display: none;
+  }
+
+  .scene__title {
+    top: 100px;
+    left: 13px;
+    font-size: 80px;
+    line-height: 0.84;
+    letter-spacing: 0;
+  }
+
+  .scene__desc {
+    top: 176px;
+    left: 13px;
+    right: var(--gutter);
+    width: auto;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  // Две карточки со статистикой поверх телефона
+  .scene__stats {
+    inset: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .card--stat {
+    position: absolute;
+    width: 137px;
+    gap: 4px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    box-shadow: 0 19px 47px rgba(20, 20, 26, 0.09);
+  }
+
+  .card--stat .card__value {
+    font-size: 34px;
+
+    svg {
+      width: 23px;
+      height: 15px;
+    }
+  }
+
+  .card--stat .card__text {
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  // ALEXOIL: первая карточка справа вверху, вторая слева внизу
+  .page-alexoil {
+    .scene__media {
+      top: 269px;
+      left: 49px;
+      width: 257px;
+    }
+
+    .card--stat:nth-child(1) { top: 320px; left: 208px; rotate: 4deg; }
+    .card--stat:nth-child(2) { top: 468px; left: 15px; rotate: -4deg; }
+  }
+
+  // KIDSUP: наоборот — вторая карточка справа, первая слева
+  .page-kidsup {
+    .scene__media {
+      top: 287px;
+      left: 49px;
+      width: 256px;
+    }
+
+    .scene__stats {
+      top: 0;
+    }
+
+    .card--stat:nth-child(2) { top: 339px; left: 208px; rotate: 4deg; }
+    .card--stat:nth-child(1) { top: 487px; left: 15px; rotate: -4deg; }
+  }
+
+  // USCODE: заголовок слева, под ним окно с канбан-доской
+  .page-uscode {
+    .scene__head {
+      top: 60px;
+      left: var(--gutter);
+      right: var(--gutter);
+      width: auto;
+      align-items: stretch;
+      gap: 0;
+      text-align: left;
+      transform: none;
+    }
+
+    .scene__head .tags {
+      gap: 4px;
+    }
+
+    .scene__head .scene__title {
+      margin-top: 44px;
+      font-size: 80px;
+    }
+
+    .scene__head .scene__desc {
+      margin-top: 9px;
+    }
+
+    .scene__media {
+      top: 316px;
+      left: var(--gutter);
+      width: 403px;
+      max-width: none;
+      border-radius: 12px 12px 0 0;
+    }
+  }
+
+  // ---------- Тело кейса ----------
+  .case-body {
+    gap: 88px;
+    margin-top: -40px;
+    padding-top: 52px;
+    border-radius: 32px 32px 0 0;
+  }
+
+  .section-title {
+    font-size: 40px;
+  }
+
+  .section-title--xl {
+    font-size: 52px;
+    line-height: 0.84;
+    letter-spacing: 0;
+    white-space: normal;
+  }
+
+  .body-text,
+  .text-2 {
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .intro {
+    gap: 40px;
+  }
+
+  .intro__row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .intro__content {
+    flex: none;
+    width: 100%;
+  }
+
+  .chip {
+    height: auto;
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  // Порядок блоков на телефоне: проблема → решение → результаты → экраны
+  .case-body > section:not(.intro):not(.split):not(.chapters):not(.next-case) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ps      { order: 1; }
+  .results { order: 2; }
+  .screens,
+  .showcase { order: 3; }
+
+  .ps {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 var(--gutter) 40px;
+  }
+
+  .ps__col {
+    flex: none;
+    gap: 20px;
+
+    .body-text { max-width: none; }
+  }
+
+  .ps__col + .ps__col .body-text {
+    max-width: none;
+  }
+
+  .results {
+    flex-direction: column;
+    gap: 28px;
+    padding: 0 var(--gutter) 44px;
+  }
+
+  .results__title {
+    flex: none;
+  }
+
+  .results__list {
+    gap: 28px;
+  }
+
+  .result {
+    gap: 12px;
+  }
+
+  .result__label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .result__value {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .result__note {
+    color: var(--color-heading);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  // Экраны идут столбиком по центру
+  .screens {
+    flex-direction: column;
+    gap: 52px;
+    padding: 12px;
+  }
+
+  .screen:hover > img {
+    transform: translateX(-50%);
+  }
+
+  // Текст + один экран
+  .split {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .split__text {
+    flex: none;
+    gap: 40px;
+    padding: 0 var(--gutter);
+  }
+
+  .split__block {
+    gap: 20px;
+
+    .body-text { max-width: none; }
+  }
+
+  .split__block:last-child {
+    gap: 28px;
+  }
+
+  .split__media,
+  .split__media--tall {
+    flex: none;
+    align-self: center;
+    width: 191px;
+    height: 401px;
+    margin: 12px 0;
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+
+    img {
+      top: -5px;
+      width: 200px;
+      height: 412px;
+      transform: translateX(-50%);
+    }
+  }
+
+  // Скриншоты веб-платформы — без подложки
+  .showcase {
+    gap: 44px;
+  }
+
+  .showcase__card {
+    aspect-ratio: auto;
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+
+    img {
+      position: static;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: none;
+    }
+
+    &:hover img {
+      transform: none;
+    }
+  }
+}

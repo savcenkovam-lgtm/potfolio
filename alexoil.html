@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALEXOIL — кейс | Марина Савченкова</title>
+  <meta name="description" content="Кейс ALEXOIL: приложение для водителей — поиск АЗС, оплата топлива с телефона и бонусы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Sofia+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+  <script type="module" src="./src/js/main.js"></script>
+</head>
+<body class="page-case page-alexoil">
+
+  <!-- Стрелка: ↗ в обычном состоянии, → при наведении (см. UI kit) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="arrow">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path class="arrow-diag" d="M6 14 14 6M7.5 6H14v6.5"/>
+        <path class="arrow-right" d="M3 10h21M18 4l6 6-6 6"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- Мобильная шапка: кнопка меню -->
+  <header class="topbar">
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Плавающая навигация -->
+  <nav class="nav" id="site-nav" aria-label="Основная навигация">
+    <a class="nav__link" href="./index.html">На главную</a>
+    <a class="nav__link" href="#">CV</a>
+    <a class="nav__link" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="nav__link" href="mailto:">Email</a>
+    <a class="nav__link nav__link--accent" href="#" target="_blank" rel="noopener">
+      Telegram
+      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+    </a>
+  </nav>
+
+
+  <main class="container">
+
+    <!-- Первый экран -->
+    <section class="scene">
+      <div class="scene__inner">
+        <ul class="tags scene__tags">
+          <li class="tag tag--white">Мобильное приложение</li>
+          <li class="tag tag--white">Новый продукт</li>
+          <li class="tag tag--white">B2C</li>
+          <li class="tag tag--white">2025</li>
+        </ul>
+        <p class="case__counter scene__counter">01 / 03</p>
+
+        <img class="scene__media" src="./src/assets/img/alexoil/hero-phone.webp" width="665" height="824" alt="Главный экран приложения AlexOil" fetchpriority="high">
+
+        <h1 class="scene__title display">Alexoil</h1>
+        <p class="scene__desc">Приложение для водителей: находит ближайшую АЗС, оплачивает топливо с телефона и ведёт бонусы</p>
+
+        <div class="card card--float card--bonus">
+          <p class="card__title">Бонусы</p>
+          <p class="card__text">и история операций</p>
+        </div>
+        <div class="card card--float card--search">
+          <p class="card__title">Поиск АЗС</p>
+          <p class="card__text">Ближайшая заправка на карте</p>
+        </div>
+
+        <div class="scene__stats">
+          <div class="card card--stat">
+            <p class="card__value">68 <svg viewBox="0 0 51 34" fill="none" aria-hidden="true"><path d="M6 17h38M32 6l12 11-12 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> 81%</p>
+            <p class="card__text">Доведенных до конца заправок</p>
+          </div>
+          <div class="card card--stat">
+            <p class="card__value">в 2 раза</p>
+            <p class="card__text">Быстрее оформление заказа</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="case-body">
+
+      <!-- Задача и ограничения -->
+      <section class="intro">
+        <div class="intro__row">
+          <h2 class="section-title section-title--xl">Задача</h2>
+          <p class="intro__content body-text text-2">Перенести процесс заправки и оплаты топлива в мобильное приложение, чтобы пользователь мог выбрать колонку, топливо и объём, оплатить заранее и управлять заправкой через телефон. Упростить оформление, сократить время заказа и снизить риск ошибок при нестабильной связи на АЗС</p>
+        </div>
+        <div class="intro__row">
+          <h2 class="section-title section-title--xl">Ограничения</h2>
+          <ul class="intro__content chips">
+            <li class="chip">Предоплата и цена ошибки</li>
+            <li class="chip">Разное оборудование на АЗС</li>
+            <li class="chip">Нестабильная связь</li>
+            <li class="chip">Нет продуктовой аналитики</li>
+            <li class="chip">Сжатые сроки</li>
+            <li class="chip">Ограничения бэкенда</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Сценарий заправки -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Исходный сценарий с одной формой усложнял оформление и увеличивал время сборки заказа. Предоплата и нестабильная связь создавали риск повторных нажатий из-за задержки между списанием денег и запуском колонки</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Разделила оформление на три шага: выбор колонки, топлива и объёма. Добавила подтверждение нахождения на АЗС, промежуточный экран оплаты с защитой от повторных нажатий и отдельные состояния заправки</p>
+          </div>
+        </div>
+        <div class="screens">
+          <figure class="screen"><img src="./src/assets/img/alexoil/flow-1-column.webp" width="200" height="412" alt="Выбор колонки" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/flow-2-fuel.webp" width="200" height="412" alt="Выбор топлива" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/flow-3-volume.webp" width="200" height="412" alt="Выбор объёма" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/flow-4-payment.webp" width="200" height="412" alt="Идёт оплата" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/flow-5-nozzle.webp" width="200" height="412" alt="Вставьте пистолет в бак" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/flow-6-fueling.webp" width="200" height="412" alt="Заправляемся" loading="lazy">
+            <video class="screen__overlay" data-autoplay muted loop playsinline preload="none" aria-hidden="true"><source src="./src/assets/video/alexoil/drop.mp4" type="video/mp4"></video></figure>
+        </div>
+        <div class="results">
+          <h2 class="section-title results__title">Результаты</h2>
+          <div class="results__list">
+            <div class="result">
+              <p class="result__label">Выросла доля заправок, доведённых до конца</p>
+              <p class="result__value">68% → 81%</p>
+            </div>
+            <div class="result">
+              <p class="result__label">Время оформления заказа сокращено с 50 до 20–25 секунд</p>
+              <p class="result__value">в 2 раза</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Подтверждение «Вы точно на АЗС?» -->
+      <section class="split">
+        <div class="split__text">
+          <div class="split__block">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Запустить заправку можно было удалённо, даже находясь не на АЗС, что создавало риск случайной блокировки колонки</p>
+          </div>
+          <div class="split__block">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Добавила подтверждение «Вы точно на АЗС?» перед началом заправки, чтобы исключить удалённый запуск</p>
+          </div>
+          <div class="split__block">
+            <h2 class="section-title">Результаты</h2>
+            <p class="result__note">Снизила риск случайной блокировки колонки и ошибочного запуска заправки вне АЗС</p>
+          </div>
+        </div>
+        <div class="split__media">
+          <img src="./src/assets/img/alexoil/confirm-azs.webp" width="301" height="619" alt="Экран подтверждения «Вы точно на АЗС?»" loading="lazy">
+        </div>
+      </section>
+
+      <!-- Регистрация -->
+      <section>
+        <div class="ps">
+          <div class="ps__col">
+            <h2 class="section-title">Проблема</h2>
+            <p class="body-text text-2">Регистрация была необходима для доступа к основным функциям приложения, поэтому важно было сделать этот шаг простым и понятным для пользователя</p>
+          </div>
+          <div class="ps__col">
+            <h2 class="section-title">Решение</h2>
+            <p class="body-text text-2">Спроектировала сценарий регистрации с последовательным сбором данных пользователя и переходом к основным разделам приложения: профилю, карте АЗС и программе лояльности</p>
+          </div>
+        </div>
+        <div class="screens">
+          <figure class="screen"><img src="./src/assets/img/alexoil/reg-1-welcome.webp" width="200" height="412" alt="Добро пожаловать в AlexOil" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/reg-2-phone.webp" width="200" height="412" alt="Вход по номеру телефона" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/reg-3-card.webp" width="200" height="412" alt="Карта постоянного клиента" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/reg-4-holder.webp" width="200" height="412" alt="Данные держателя карты" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/reg-5-code.webp" width="200" height="412" alt="Ввод кода из СМС" loading="lazy"></figure>
+          <figure class="screen"><img src="./src/assets/img/alexoil/reg-6-home.webp" width="200" height="412" alt="Главный экран" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <!-- Следующий кейс -->
+      <section class="next-case">
+        <a class="next-case__card" href="./kidsup.html">
+          <ul class="tags next-case__tags">
+            <li class="tag tag--white">Следующий кейс</li>
+            <li class="tag tag--white">Мобильное приложение</li>
+            <li class="tag tag--white">2025</li>
+          </ul>
+          <h2 class="next-case__title display">Kidsup</h2>
+          <p class="next-case__desc">Приложение для родителей с развивающими занятиями, картой навыков и библиотекой игр для детей</p>
+          <img class="next-case__shot next-case__shot--1" src="./src/assets/img/next/kidsup-2.webp" width="238" height="491" alt="" loading="lazy">
+          <img class="next-case__shot next-case__shot--2" src="./src/assets/img/next/kidsup-1.webp" width="238" height="491" alt="" loading="lazy">
+          <img class="next-case__shot next-case__shot--3" src="./src/assets/img/next/kidsup-3.webp" width="238" height="491" alt="" loading="lazy">
+          <span class="btn next-case__btn">Смотреть кейс <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
+      </section>
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+      <span class="tag">Контакты</span>
+      <div class="contacts__title-wrap">
+        <h2 class="contacts__title display">Напишите мне</h2>
+        <a class="pill-link contacts__pill--tg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a class="pill-link contacts__pill--cv" href="#">CV</a>
+        <a class="pill-link contacts__pill--in" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и возможные форматы взаимодействия</p>
+      <a class="btn btn--grow contacts__cta" href="#" target="_blank" rel="noopener">
+        Написать в Telegram
+        <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+    </section>
+
+    </div>
+  </main>
+</body>
+</html>

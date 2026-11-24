@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Марина Савченкова — Product Designer</title>
+  <meta name="description" content="Портфолио UX/UI дизайнера Марины Савченковой: продумываю сценарии и превращаю их в простые и эффективные интерфейсы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Sofia+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+  <script type="module" src="./src/js/main.js"></script>
+</head>
+<body class="page-home">
+
+  <!-- Стрелка: ↗ в обычном состоянии, → при наведении (см. UI kit) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="arrow">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path class="arrow-diag" d="M6 14 14 6M7.5 6H14v6.5"/>
+        <path class="arrow-right" d="M3 10h21M18 4l6 6-6 6"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- Мобильная шапка: кнопка меню -->
+  <header class="topbar">
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Плавающая навигация -->
+  <nav class="nav" id="site-nav" aria-label="Основная навигация">
+    <a class="nav__link" href="./index.html">На главную</a>
+    <a class="nav__link" href="#">CV</a>
+    <a class="nav__link" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="nav__link" href="mailto:">Email</a>
+    <a class="nav__link nav__link--accent" href="#" target="_blank" rel="noopener">
+      Telegram
+      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+    </a>
+  </nav>
+
+  <main class="container">
+
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="hero__title-wrap">
+        <h1 class="hero__title display">Product<br>design</h1>
+        <span class="float-label hero__label--name">Савченкова Марина</span>
+        <span class="float-label hero__label--exp">4+ года опыта</span>
+        <span class="float-label hero__label--role">UX/UI Design</span>
+      </div>
+
+      <p class="hero__lead">Продумываю сценарии и превращаю их в простые и эффективные интерфейсы</p>
+
+      <a class="btn btn--grow hero__cta" href="#works">
+        Смотреть работы
+        <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+
+      <div class="hero__photo">
+        <img src="./src/assets/img/home/photo.webp" width="427" height="700" alt="Марина Савченкова" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- Проекты -->
+    <div class="cases" id="works">
+
+      <!-- 01 ALEXOIL -->
+      <article class="case">
+        <header class="case__head">
+          <div class="case__intro">
+            <ul class="tags">
+              <li class="tag">Мобильное приложение</li>
+              <li class="tag">Новый продукт</li>
+              <li class="tag">B2C</li>
+              <li class="tag">2025</li>
+            </ul>
+            <h2 class="case__title display">AlexOil</h2>
+          </div>
+          <div class="case__aside">
+            <p class="case__counter">01 / 03</p>
+            <p class="case__desc">Приложение для водителей: находит ближайшую АЗС, оплачивает топливо с телефона и ведёт бонусы</p>
+            <a class="btn" href="./alexoil.html">
+              Смотреть кейс
+              <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+            </a>
+          </div>
+        </header>
+        <a class="panel panel--alexoil" href="./alexoil.html" aria-label="Кейс ALEXOIL">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="./src/assets/video/home/alexoil-poster.webp">
+            <source src="./src/assets/video/home/alexoil.mp4" type="video/mp4">
+          </video>
+          <img class="panel__mobile" src="./src/assets/img/home/alexoil-phone.webp" width="224" height="461" alt="Главный экран AlexOil" loading="lazy">
+        </a>
+      </article>
+
+      <!-- 02 KIDSUP -->
+      <article class="case">
+        <header class="case__head">
+          <div class="case__intro">
+            <ul class="tags">
+              <li class="tag">Мобильное приложение</li>
+              <li class="tag">Оптимизация UX</li>
+              <li class="tag">B2C</li>
+              <li class="tag">2025</li>
+            </ul>
+            <h2 class="case__title display">Kidsup</h2>
+          </div>
+          <div class="case__aside">
+            <p class="case__counter">02 / 03</p>
+            <p class="case__desc">Приложение для родителей с развивающими занятиями, картой навыков и библиотекой игр для детей</p>
+            <a class="btn" href="./kidsup.html">
+              Смотреть кейс
+              <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+            </a>
+          </div>
+        </header>
+        <a class="panel panel--kidsup" href="./kidsup.html" aria-label="Кейс KIDSUP">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="./src/assets/video/home/kidsup-poster.webp">
+            <source src="./src/assets/video/home/kidsup.mp4" type="video/mp4">
+          </video>
+          <img class="panel__mobile" src="./src/assets/img/next/kidsup-2.webp" width="224" height="460" alt="Онбординг KidsUp" loading="lazy">
+        </a>
+      </article>
+
+      <!-- 03 USCODE -->
+      <article class="case">
+        <header class="case__head">
+          <div class="case__intro">
+            <ul class="tags">
+              <li class="tag">Веб-платформа</li>
+              <li class="tag">Новый продукт</li>
+              <li class="tag">B2C</li>
+              <li class="tag">2024</li>
+            </ul>
+            <h2 class="case__title display">Uscode</h2>
+          </div>
+          <div class="case__aside">
+            <p class="case__counter">03 / 03</p>
+            <p class="case__desc">Учебная платформа для разработчиков и&nbsp;вайбкодеров</p>
+            <a class="btn" href="./uscode.html">
+              Смотреть кейс
+              <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+            </a>
+          </div>
+        </header>
+        <a class="panel panel--uscode" href="./uscode.html" aria-label="Кейс USCODE">
+          <video data-autoplay muted loop playsinline preload="metadata" poster="./src/assets/video/home/uscode-poster.webp">
+            <source src="./src/assets/video/home/uscode.mp4" type="video/mp4">
+          </video>
+          <div class="panel__mobile browser" aria-hidden="true">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <img src="./src/assets/img/uscode/kanban.webp" width="552" height="345" alt="" loading="lazy">
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+      <span class="tag">Контакты</span>
+      <div class="contacts__title-wrap">
+        <h2 class="contacts__title display">Напишите мне</h2>
+        <a class="pill-link contacts__pill--tg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a class="pill-link contacts__pill--cv" href="#">CV</a>
+        <a class="pill-link contacts__pill--in" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и возможные форматы взаимодействия</p>
+      <a class="btn btn--grow contacts__cta" href="#" target="_blank" rel="noopener">
+        Написать в Telegram
+        <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+    </section>
+
+  </main>
+</body>
+</html>
