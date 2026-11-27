@@ -9,16 +9,26 @@
 }
 
 // ---------- Первый экран ----------
+// Фоны кейса (серый первый экран и белый лист) тянутся на всю ширину экрана,
+// а содержимое остаётся по центру в пределах 1440px.
+.page-case main.container {
+  max-width: none;
+}
+
+// Градиент задан в пикселях от центра, поэтому на широком экране
+// он не растягивается — по краям просто продолжается серый цвет
 .scene {
-  background: var(--soft-gradient);
   position: relative;
   height: 969px;
   overflow: hidden;
+  background: radial-gradient(1152px 872px at calc(50% + 288px) 436px, #ffffff 0%, #f3f3f6 55%, #e7e7eb 100%) #e7e7eb;
 }
 
 .scene__inner {
   position: relative;
   height: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
 }
 
 .scene__tags {
@@ -127,7 +137,10 @@
 .card--float {
   position: absolute;
   z-index: 1;
-  animation: float 6s ease-in-out infinite;
+  // проявление вместе с первым экраном + лёгкое покачивание
+  animation:
+    hero-fade 0.4s cubic-bezier(0, 0, 0.58, 1) 0.85s both,
+    float 6s ease-in-out 0.85s infinite;
 }
 
 @keyframes float {
@@ -150,6 +163,12 @@
   padding-top: 140px;
   border-radius: 68px 68px 0 0;
   background: var(--color-white);
+}
+
+.case-body > * {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
 }
 
 .section-title {
@@ -412,30 +431,16 @@
   bottom: 40px;
 }
 
+// Экраны показываются целиком, без обрезки по бокам;
+// низ уходит за край карточки, как в макете
 .next-case__shot {
   position: absolute;
   width: 238px;
-  height: 491px;
+  height: auto;
   max-width: none;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.6s var(--ease);
 }
 
-.next-case__card:hover .next-case__shot {
-  transform: translateY(-12px);
-}
 
-// Анимация «Смотреть кейс» при наведении на всю карточку
-.next-case__card:hover .btn::before {
-  opacity: 1;
-}
-
-.next-case__card:hover .icon-arrow {
-  --arrow-diag: 0;
-  --arrow-right: 1;
-  width: 28px;
-}
 
 // =========================================================
 // ALEXOIL
@@ -459,7 +464,7 @@
     left: 44%;
     width: 250px;
     rotate: -3deg;
-    animation-delay: -3s;
+    animation-delay: 0.85s, -3s;
   }
 
   .next-case__shot--1 { top: 176px; left: 40.81%; }
@@ -520,23 +525,20 @@
 }
 
 // Превью веб-платформы в карточке следующего кейса
+// Окно 655×409 в точке макета (left 665, top 150).
+// Скругление 24/24/16/16 и мягкая тень — как у рамки в Figma
+// (Drop shadow: y 20, blur 60, #0D0D0E 18%).
 .next-case__screen {
   position: absolute;
   top: 150px;
   left: 48.9%;
   width: 48.16%;
+  height: auto;
   max-width: none;
-  aspect-ratio: 655 / 409;
   border-radius: 24px 24px 16px 16px;
-  object-fit: cover;
-  object-position: top left;
-  filter: drop-shadow(0 20px 30px rgba(13, 13, 14, 0.18));
-  transition: transform 0.6s var(--ease);
+  box-shadow: 0 20px 60px rgba(13, 13, 14, 0.18);
 }
 
-.next-case__card:hover .next-case__screen {
-  transform: translateY(-12px);
-}
 
 // =========================================================
 // KIDSUP
@@ -568,7 +570,7 @@
     left: 46.1%;
     width: 250px;
     rotate: -3deg;
-    animation-delay: -3s;
+    animation-delay: 0.85s, -3s;
   }
 }
 
@@ -628,9 +630,11 @@
     font-size: min(240px, 16.67vw);
   }
 
+  // Описание сразу под заголовком, как в макете: по центру между заголовком и картинкой
   .scene__head .scene__desc {
     position: static;
     width: auto;
+    margin-top: -19px;
   }
 
   .scene__media {
@@ -666,6 +670,72 @@
     top: 213px;
     left: 79.6%;
     rotate: 4deg;
-    animation-delay: -3s;
+    animation-delay: 0.85s, -3s;
+  }
+}
+
+
+// =========================================================
+// Появление первого экрана кейса — как на главной
+// (Figma: «Анимаця главный экран»): через 0.3с заголовок поднимается
+// на 192px и проявляется (0.4с); ещё через 0.15с картинка и карточки
+// статистики поднимаются на 57px, теги, счётчик и описание проявляются.
+// Ключевые кадры hero-rise / hero-fade — в _home.scss.
+// =========================================================
+.scene__title {
+  --rise: 192px;
+  animation: hero-rise 0.4s cubic-bezier(0, 0, 0.58, 1) 0.3s both;
+}
+
+.scene__media,
+.scene__stats {
+  --rise: 57px;
+  animation: hero-rise 0.4s cubic-bezier(0, 0, 0.58, 1) 0.85s both;
+}
+
+.scene__tags,
+.scene__head .tags,
+.scene__counter,
+.scene__desc {
+  animation: hero-fade 0.4s cubic-bezier(0, 0, 0.58, 1) 0.85s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene__title,
+  .scene__media,
+  .scene__stats,
+  .scene__tags,
+  .scene__head .tags,
+  .scene__counter,
+  .scene__desc,
+  .card--float {
+    animation: none;
+  }
+}
+
+// =========================================================
+// Наведение на картинку первого экрана кейса (Figma: «Анимация блоки»):
+// картинка увеличивается в 1.055 раза. Пружина мягче, чем «Quick» в Figma:
+// спокойный разгон, отскок на треть меньше, 1с — и при наведении, и при возврате.
+// =========================================================
+@media (hover: hover) and (min-width: 768px) {
+  .scene__media {
+    pointer-events: auto;
+    transition: transform 1s linear(0, 0.028, 0.1, 0.199, 0.314, 0.433, 0.549, 0.657, 0.753, 0.836, 0.904, 0.959, 1, 1.03, 1.05, 1.062, 1.067, 1.068, 1.064, 1.058, 1.051, 1.043, 1.035, 1.027, 1.02, 1.014, 1.009, 1.005, 1.001, 0.999, 0.997, 0.996, 0.996, 0.995, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 1);
+  }
+
+  .scene__media:hover {
+    transform: scale(1.055);
+  }
+
+  // На странице USCODE картинка (канбан-доска) не увеличивается
+  .page-uscode .scene__media:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene__media {
+    transition: none;
   }
 }

@@ -4,19 +4,40 @@
 .icon-arrow {
   --arrow-diag: 1;
   --arrow-right: 0;
+  --arrow-ease: cubic-bezier(0.33, 1, 0.68, 1); // мягкое замедление в конце
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  transition: width 0.3s var(--ease);
+  transition: width 0.35s var(--arrow-ease);
 }
 
+// ↗ слегка поворачивается и растворяется, → чуть выезжает слева
+// и проявляется — мягкая, но не затянутая смена стрелок
 .arrow-diag,
 .arrow-right {
-  transition: opacity 0.25s ease;
+  transform-box: view-box;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s var(--arrow-ease);
 }
 
-.arrow-diag  { opacity: var(--arrow-diag); }
-.arrow-right { opacity: var(--arrow-right); }
+.arrow-diag {
+  opacity: var(--arrow-diag);
+  transition:
+    opacity 0.2s ease,
+    transform 0.35s var(--arrow-ease);
+  transform: rotate(calc((1 - var(--arrow-diag)) * 22deg));
+  transform-origin: 10px 10px;
+}
+
+.arrow-right {
+  opacity: var(--arrow-right);
+  transition:
+    opacity 0.25s ease 0.05s,
+    transform 0.35s var(--arrow-ease);
+  transform: translateX(calc((1 - var(--arrow-right)) * -3px)) rotate(calc((1 - var(--arrow-right)) * -22deg));
+  transform-origin: 14px 10px;
+}
 
 // Состояние «наведено» для стрелки внутри любого интерактивного элемента
 .btn:hover .icon-arrow,
@@ -41,12 +62,12 @@
   border-radius: var(--radius-pill);
   background: var(--color-ink);
   color: var(--color-white);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   white-space: nowrap;
   overflow: hidden;
-  transition: transform 0.3s var(--ease);
+  transition: transform 0.45s var(--ease);
 
   &::before {
     content: '';
@@ -55,7 +76,7 @@
     z-index: -1;
     background: linear-gradient(2.4deg, #18181b 12.4%, #3a3a3d 116.1%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.35s ease;
   }
 
   &:hover::before {
@@ -129,19 +150,18 @@
   align-items: center;
   gap: 6px;
   height: 44px;
-  padding: 0 18px;
-  border-radius: var(--radius-pill);
+  padding: 0 20px;
+  border-radius: 40px;
   background: var(--color-white);
   box-shadow: var(--shadow-pill);
   color: var(--color-ink);
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 16px;
-  line-height: 1;
+  font-size: 18px;
+  line-height: 24px;
   text-transform: none;
   letter-spacing: 0;
   white-space: nowrap;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s;
 
   .icon-arrow {
     width: 16px;
@@ -152,10 +172,7 @@
     width: 22px;
   }
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 34px rgba(20, 20, 26, 0.22);
-  }
+  // Теги в футере не двигаются при наведении
 }
 
 // ---------- Плавающая навигация ----------
@@ -182,7 +199,7 @@
   padding: 0 20px;
   border-radius: var(--radius-pill);
   color: var(--color-white);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1;
   white-space: nowrap;
@@ -212,5 +229,71 @@
 
   &:hover {
     background: #ececec;
+  }
+}
+
+// Меню скрыто на первом экране и выезжает снизу, как только начинается прокрутка
+// (класс .nav-visible ставит скрипт). Только для десктопа — на телефоне «бургер».
+@media (min-width: 768px) {
+  .nav {
+    translate: 0 calc(100% + 40px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      translate 0.45s cubic-bezier(0, 0, 0.58, 1),
+      opacity 0.3s ease,
+      visibility 0s 0.45s;
+  }
+
+  .nav-visible .nav {
+    translate: 0 0;
+    opacity: 1;
+    visibility: visible;
+    transition:
+      translate 0.45s cubic-bezier(0, 0, 0.58, 1),
+      opacity 0.3s ease;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: reduce) {
+  .nav,
+  .nav-visible .nav {
+    transition: none;
+  }
+}
+
+// =========================================================
+// Появление блоков при прокрутке на главной (Figma: «Анимация блоки»)
+// По принципу первого экрана: шаг 1 — строка проекта целиком (теги, название,
+// счётчик, описание, кнопка), шаг 2 (через 0.4с после шага 1) — плашка
+// с видео. Каждый шаг 0.4с, ease-out.
+// Классы ставит скрипт, поэтому без JS всё видно сразу.
+// Ключевые кадры hero-rise — в _home.scss.
+// =========================================================
+.reveal .reveal-1,
+.reveal .reveal-2 {
+  opacity: 0;
+}
+
+.reveal.is-visible .reveal-1 {
+  --rise: 192px;
+  animation: hero-rise 0.4s cubic-bezier(0, 0, 0.58, 1) both;
+}
+
+.reveal.is-visible .reveal-2 {
+  --rise: 57px;
+  animation: hero-rise 0.4s cubic-bezier(0, 0, 0.58, 1) 0.8s both;
+}
+
+@media (max-width: 767px) {
+  .reveal.is-visible .reveal-1 { --rise: 96px; }
+  .reveal.is-visible .reveal-2 { --rise: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .reveal-1,
+  .reveal .reveal-2 {
+    opacity: 1;
+    animation: none;
   }
 }

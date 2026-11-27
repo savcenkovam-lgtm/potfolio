@@ -29,6 +29,13 @@
 
 // Подписи поверх заголовка: координаты в долях кегля заголовка,
 // поэтому они остаются на месте при масштабировании.
+// Теги первого экрана: скругление 40, текст 18/24
+.hero .float-label {
+  border-radius: 40px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .hero__label--name { left: calc(var(--fs-hero) * 0.7221); top: calc(var(--fs-hero) * 0.0878); }
 .hero__label--exp  { left: calc(var(--fs-hero) * 2.327);  top: calc(var(--fs-hero) * 1.0597); }
 .hero__label--role { left: calc(var(--fs-hero) * 1.4361); top: calc(var(--fs-hero) * 1.4546); }
@@ -215,4 +222,70 @@
 
 .contacts__cta {
   margin-top: 60px;
+}
+
+// =========================================================
+// Анимация первого экрана (Figma: «Анимаця главный экран»)
+// Кадры прототипа: пусто → заголовок (через 0.3с, 0.4с) →
+// фото, теги, текст, кнопка (ещё через 0.15с, 0.4с), ease-out.
+// =========================================================
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    translate: 0 var(--rise, 0px);
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// Шаг 1: заголовок поднимается на 192px и проявляется
+.hero__title {
+  --rise: 192px;
+  animation: hero-rise 0.4s cubic-bezier(0, 0, 0.58, 1) 0.3s both;
+}
+
+// Шаг 2: фото и кнопка поднимаются на 57px, теги и текст проявляются на месте
+.hero__photo,
+.hero__cta {
+  --rise: 57px;
+  animation: hero-rise 0.4s cubic-bezier(0, 0, 0.58, 1) 0.85s both;
+}
+
+.hero .float-label,
+.hero__lead {
+  animation: hero-fade 0.4s cubic-bezier(0, 0, 0.58, 1) 0.85s both;
+}
+
+// Наведение на фото: ×1.1, поворот 2.7°, пружина Figma «Gentle» за 1.15с
+.hero__photo {
+  transition: transform 1.15s linear(0, 0.054, 0.179, 0.333, 0.488, 0.63, 0.749, 0.843, 0.913, 0.963, 0.996, 1.015, 1.025, 1.028, 1.027, 1.024, 1.02, 1.015, 1.011, 1.008, 1.005, 1.003, 1.001, 1, 1, 0.999, 0.999, 0.999, 0.999, 0.999, 1, 1, 1);
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .hero__photo:hover {
+    transform: translateX(-19px) scale(1.1) rotate(2.7deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__photo,
+  .hero__cta,
+  .hero .float-label,
+  .hero__lead {
+    animation: none;
+  }
+
+  .hero__photo {
+    transition: none;
+  }
 }
