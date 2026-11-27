@@ -12,13 +12,16 @@
 </head>
 <body class="page-case page-kidsup">
 
-  <!-- Стрелка: ↗ в обычном состоянии, → при наведении (см. UI kit) -->
+  <!-- Стрелки из компонентов Figma: ↗ в покое, → при наведении -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="arrow">
-      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path class="arrow-diag" d="M6 14 14 6M7.5 6H14v6.5"/>
-        <path class="arrow-right" d="M3 10h21M18 4l6 6-6 6"/>
-      </g>
+      <path class="arrow-diag" fill="currentColor" d="M5.1423 4.99442C5.1423 4.33175 5.67981 3.79439 6.34244 3.79427L14.5923 3.79358C15.2548 3.79358 15.7922 4.3312 15.7924 4.99373V13.2442C15.7922 13.9068 15.2548 14.4444 14.5923 14.4444C13.9297 14.4444 13.3924 13.9068 13.3921 13.2442V7.89121L5.42334 15.86C4.95472 16.3286 4.19464 16.3286 3.72601 15.86C3.25761 15.3913 3.25815 14.6319 3.7267 14.1633L11.6962 6.19388L6.34244 6.19457C5.67989 6.19444 5.14242 5.65698 5.1423 4.99442Z"/>
+      <path class="arrow-right" fill="currentColor" d="M17.9834 3.31941C18.452 2.85083 19.212 2.85094 19.6807 3.31941L25.5146 9.15242C25.7396 9.37738 25.8651 9.68291 25.8652 10.001C25.8652 10.3192 25.7395 10.6247 25.5146 10.8497L19.6807 16.6837C19.212 17.152 18.4519 17.1522 17.9834 16.6837C17.5149 16.2151 17.5151 15.4551 17.9834 14.9864L21.7686 11.2012H2.49902C1.83628 11.2012 1.29883 10.6638 1.29883 10.001C1.299 9.33846 1.83639 8.80183 2.49902 8.80183H21.7695L17.9834 5.01667C17.515 4.54809 17.515 3.788 17.9834 3.31941Z"/>
+    </symbol>
+    <symbol id="arrow-nav">
+      <!-- иконки меню нарисованы в квадрате 16, масштаб 1.25 — под общую сетку 20 -->
+      <g class="arrow-diag"><path transform="scale(1.25)" fill="currentColor" d="M12.9999 10.667C12.9997 11.2191 12.5521 11.667 11.9999 11.667C11.4477 11.667 11.0001 11.2191 10.9999 10.667V6.41406L4.70696 12.707C4.31643 13.0976 3.68342 13.0976 3.29289 12.707C2.90237 12.3165 2.90237 11.6835 3.29289 11.293L9.58586 5H5.33293C4.7808 4.99982 4.33293 4.55218 4.33293 4C4.33293 3.44782 4.7808 3.00018 5.33293 3H11.9999C12.5522 3 12.9999 3.44772 12.9999 4V10.667Z"/></g>
+      <g class="arrow-right"><path transform="scale(1.25)" fill="currentColor" d="M12.6498 13.4213C12.2592 13.8116 11.626 13.8118 11.2355 13.4213C10.8453 13.0309 10.8453 12.3976 11.2355 12.0071L14.2428 8.99986L1.34364 8.99985C0.791358 8.99986 0.34375 8.55225 0.34375 7.99996C0.343865 7.44777 0.79143 7.00007 1.34364 7.00007H14.2428L11.2362 3.99348C10.8457 3.60296 10.8457 2.96979 11.2362 2.57927C11.6268 2.18875 12.2599 2.18875 12.6504 2.57927L17.364 7.29285C17.7546 7.68338 17.7546 8.31654 17.364 8.70707L12.6498 13.4213Z"/></g>
     </symbol>
   </svg>
 
@@ -31,13 +34,13 @@
 
   <!-- Плавающая навигация -->
   <nav class="nav" id="site-nav" aria-label="Основная навигация">
-    <a class="nav__link" href="./index.html">На главную</a>
+    <a class="nav__link" href="./index.html">На&nbsp;главную</a>
     <a class="nav__link" href="#">CV</a>
     <a class="nav__link" href="#" target="_blank" rel="noopener">LinkedIn</a>
     <a class="nav__link" href="mailto:">Email</a>
     <a class="nav__link nav__link--accent" href="#" target="_blank" rel="noopener">
       Telegram
-      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow-nav"/></svg>
     </a>
   </nav>
 
@@ -59,7 +62,7 @@
         <img class="scene__media" src="./src/assets/img/kidsup/hero-phone.webp" width="665" height="825" alt="Онбординг приложения KidsUp" fetchpriority="high">
 
         <h1 class="scene__title display">KidsUp</h1>
-        <p class="scene__desc">Приложение помогает родителям заниматься с ребёнком: программа занятий на день, карта развития навыков и библиотека игр, сказок и мультфильмов. Монетизация — подписка PRO</p>
+        <p class="scene__desc">Приложение помогает родителям заниматься с&nbsp;ребёнком: программа занятий на&nbsp;день, карта развития навыков и&nbsp;библиотека игр, сказок и&nbsp;мультфильмов. Монетизация — подписка PRO</p>
 
         <div class="card card--float card--days">
           <p class="card__title">2 дня</p>
@@ -67,17 +70,17 @@
         </div>
         <div class="card card--float card--pro">
           <p class="card__title">KidsUp PRO</p>
-          <p class="card__text">Открыт доступ ко всем материалам</p>
+          <p class="card__text">Открыт доступ ко&nbsp;всем материалам</p>
         </div>
 
         <div class="scene__stats">
           <div class="card card--stat">
             <p class="card__value">61 <svg viewBox="0 0 51 34" fill="none" aria-hidden="true"><path d="M6 17h38M32 6l12 11-12 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> 74%</p>
-            <p class="card__text">родителей доходят до конца анкеты</p>
+            <p class="card__text">родителей доходят до&nbsp;конца анкеты</p>
           </div>
           <div class="card card--stat">
             <p class="card__value">≈ +20%</p>
-            <p class="card__text">к старту бесплатного периода на iOS</p>
+            <p class="card__text">к&nbsp;старту бесплатного периода на&nbsp;iOS</p>
           </div>
         </div>
       </div>
@@ -89,15 +92,15 @@
       <section class="intro">
         <div class="intro__row">
           <h2 class="section-title section-title--xl">Задача</h2>
-          <p class="intro__content body-text text-2">В марте 2025 года команда переносила приложение на iOS и обновляла подписку, сохраняя механики Android. Цели: повысить конверсию в пробный период и PRO, частоту занятий и удержание, персонализировать контент</p>
+          <p class="intro__content body-text text-2">В&nbsp;марте 2025 года команда переносила приложение на&nbsp;iOS и&nbsp;обновляла подписку, сохраняя механики Android. Цели: повысить конверсию в&nbsp;пробный период и&nbsp;PRO, частоту занятий и&nbsp;удержание, персонализировать контент</p>
         </div>
         <div class="intro__row">
           <h2 class="section-title section-title--xl">Ограничения</h2>
           <ul class="intro__content chips">
-            <li class="chip">Действующий продукт и стабильная Android-версия</li>
+            <li class="chip">Действующий продукт и&nbsp;стабильная Android-версия</li>
             <li class="chip">Релизы каждые 3–7 дней</li>
-            <li class="chip">Дети от 6 месяцев до 6 лет</li>
-            <li class="chip">Занятия по структуре методистов</li>
+            <li class="chip">Дети от&nbsp;6 месяцев до&nbsp;6 лет</li>
+            <li class="chip">Занятия по&nbsp;структуре методистов</li>
           </ul>
         </div>
       </section>
@@ -107,11 +110,11 @@
         <div class="ps">
           <div class="ps__col">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Родители отваливались на этапе регистрации, а онбординг смешивал знакомство с продуктом и анкетирование. Из-за этого пользователь не успевал понять ценность приложения и сталкивался с лишними шагами до начала занятий</p>
+            <p class="body-text text-2">Родители отваливались на&nbsp;этапе регистрации, а&nbsp;онбординг смешивал знакомство с&nbsp;продуктом и&nbsp;анкетирование. Из-за&nbsp;этого пользователь не&nbsp;успевал понять ценность приложения и&nbsp;сталкивался с&nbsp;лишними шагами до&nbsp;начала занятий</p>
           </div>
           <div class="ps__col">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Разделила онбординг и анкетирование: сначала раскрыла ценность приложения и познакомила с интерфейсом, затем предложила заполнить профиль ребёнка. Анкетирование стало опциональным, чтобы быстрее перейти к занятиям</p>
+            <p class="body-text text-2">Разделила онбординг и&nbsp;анкетирование: сначала раскрыла ценность приложения и&nbsp;познакомила с&nbsp;интерфейсом, затем предложила заполнить профиль ребёнка. Анкетирование стало опциональным, чтобы быстрее перейти к&nbsp;занятиям</p>
           </div>
         </div>
         <div class="screens">
@@ -138,15 +141,15 @@
         <div class="split__text">
           <div class="split__block">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Родителю было сложно понять объём занятий на день, свой прогресс и выбрать подходящую нагрузку</p>
+            <p class="body-text text-2">Родителю было сложно понять объём занятий на&nbsp;день, свой прогресс и&nbsp;выбрать подходящую нагрузку</p>
           </div>
           <div class="split__block">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Собрала программу дня как понятное обещание на день: добавила кольцо прогресса, выбор нагрузки — 3, 5 или 7 занятий — и стрик для поддержания регулярности</p>
+            <p class="body-text text-2">Собрала программу дня как&nbsp;понятное обещание на&nbsp;день: добавила кольцо прогресса, выбор нагрузки — 3, 5 или&nbsp;7 занятий — и&nbsp;стрик для&nbsp;поддержания регулярности</p>
           </div>
           <div class="split__block">
             <h2 class="section-title">Результаты</h2>
-            <p class="result__note">Программа стала понятнее и предсказуемее для родителя: появился ориентир по объёму занятий, видимый прогресс и мотивация заниматься регулярно</p>
+            <p class="result__note">Программа стала понятнее и&nbsp;предсказуемее для&nbsp;родителя: появился ориентир по&nbsp;объёму занятий, видимый прогресс и&nbsp;мотивация заниматься регулярно</p>
           </div>
         </div>
         <div class="split__media">
@@ -159,11 +162,11 @@
         <div class="ps">
           <div class="ps__col">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Родители сталкивались с повторяющимися занятиями и закрывали приложение, если предложенная игра не подходила по сложности, интересу или необходимым материалам</p>
+            <p class="body-text text-2">Родители сталкивались с&nbsp;повторяющимися занятиями и&nbsp;закрывали приложение, если предложенная игра не&nbsp;подходила по&nbsp;сложности, интересу или&nbsp;необходимым материалам</p>
           </div>
           <div class="ps__col">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Добавила замену занятий с выбором причины: сложность, отсутствие интереса, материалов или навыков. Причины учитываются при дальнейшем подборе, а замена ограничена двумя разами в день</p>
+            <p class="body-text text-2">Добавила замену занятий с&nbsp;выбором причины: сложность, отсутствие интереса, материалов или&nbsp;навыков. Причины учитываются при&nbsp;дальнейшем подборе, а&nbsp;замена ограничена двумя разами в&nbsp;день</p>
           </div>
         </div>
         <div class="screens">
@@ -178,12 +181,12 @@
           <h2 class="section-title results__title">Результаты</h2>
           <div class="results__list">
             <div class="result">
-              <p class="result__label">Доля занятий, доведённых до «Выполнено», выросла</p>
+              <p class="result__label">Доля занятий, доведённых до&nbsp;«Выполнено», выросла</p>
               <p class="result__value">+ 25%</p>
             </div>
             <div class="result">
-              <p class="result__label">Доля сессий, завершавшихся на первой карточке, снизилась</p>
-              <p class="result__value">в 2 раза</p>
+              <p class="result__label">Доля сессий, завершавшихся на&nbsp;первой карточке, снизилась</p>
+              <p class="result__value">в&nbsp;2 раза</p>
             </div>
           </div>
         </div>
@@ -194,16 +197,16 @@
         <div class="split__text">
           <div class="split__block">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Конверсия в бесплатный период не росла. Экран подписки выглядел как посадочная страница: преимущества, цены, скидки и отзывы были собраны вместе, а родитель видел предложение до того, как успевал заинтересоваться развитием ребёнка.</p>
+            <p class="body-text text-2">Конверсия в&nbsp;бесплатный период не&nbsp;росла. Экран подписки выглядел как&nbsp;посадочная страница: преимущества, цены, скидки и&nbsp;отзывы были собраны вместе, а&nbsp;родитель видел предложение до&nbsp;того, как&nbsp;успевал заинтересоваться развитием ребёнка.</p>
           </div>
           <div class="split__block">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Разделила пейволл на два экрана: сначала преимущества PRO, затем тарифы и цены. Перенесла точку входа в «Карту развития», где родитель уже заинтересован в прогрессе ребёнка.</p>
+            <p class="body-text text-2">Разделила пейволл на&nbsp;два экрана: сначала преимущества PRO, затем тарифы и&nbsp;цены. Перенесла точку входа в&nbsp;«Карту развития», где родитель уже заинтересован в&nbsp;прогрессе ребёнка.</p>
           </div>
           <div class="split__block">
             <h2 class="section-title">Результаты</h2>
             <div class="result result--note">
-              <p class="result__note">Конверсия в старт бесплатного периода на iOS выросла примерно</p>
+              <p class="result__note">Конверсия в&nbsp;старт бесплатного периода на&nbsp;iOS выросла примерно</p>
               <p class="result__value">+ 20%</p>
             </div>
           </div>
@@ -216,44 +219,44 @@
       <!-- Главы 04–06 -->
       <section class="chapters">
         <article class="chapter chapter--lg">
-          <h2 class="section-title chapter__title">Подбор по оценкам родителя</h2>
+          <h2 class="section-title chapter__title">Подбор по&nbsp;оценкам родителя</h2>
           <div class="chapter__block">
             <p class="chapter__label">Проблема</p>
-            <p>Оценка занятия и отметка «Выполнено» не использовались для улучшения дальнейшего подбора, поэтому программа не учитывала опыт родителя</p>
+            <p>Оценка занятия и&nbsp;отметка «Выполнено» не&nbsp;использовались для&nbsp;улучшения дальнейшего подбора, поэтому программа не&nbsp;учитывала опыт родителя</p>
           </div>
           <div class="chapter__block">
             <p class="chapter__label">Решение</p>
-            <p>Связала оценку и выполнение занятия с подбором контента: данные стали учитываться при формировании следующих рекомендаций</p>
+            <p>Связала оценку и&nbsp;выполнение занятия с&nbsp;подбором контента: данные стали учитываться при&nbsp;формировании следующих рекомендаций</p>
           </div>
           <div class="chapter__block">
             <p class="chapter__label">Результат</p>
-            <p>Подбор стал адаптироваться под обратную связь родителя и фактическое взаимодействие с занятиями</p>
+            <p>Подбор стал адаптироваться под&nbsp;обратную связь родителя и&nbsp;фактическое взаимодействие с&nbsp;занятиями</p>
           </div>
         </article>
         <article class="chapter">
           <h2 class="section-title chapter__title">Лиги родителей</h2>
           <div class="chapter__block">
             <p class="chapter__label">Проблема</p>
-            <p>В продукте не хватало механики, которая мотивировала бы родителей регулярно заниматься с ребёнком и возвращаться в приложение</p>
+            <p>В&nbsp;продукте не&nbsp;хватало механики, которая мотивировала бы родителей регулярно заниматься с&nbsp;ребёнком и&nbsp;возвращаться в&nbsp;приложение</p>
           </div>
           <div class="chapter__block">
             <p class="chapter__label">Решение</p>
-            <p>Добавила лиги родителей — соревновательную механику с уровнями от бронзовой до легендарной, где взрослые соревнуются по регулярности занятий</p>
+            <p>Добавила лиги родителей — соревновательную механику с&nbsp;уровнями от&nbsp;бронзовой до&nbsp;легендарной, где взрослые соревнуются по&nbsp;регулярности занятий</p>
           </div>
         </article>
         <article class="chapter">
-          <h2 class="section-title chapter__title">Фильтры по ситуации</h2>
+          <h2 class="section-title chapter__title">Фильтры по&nbsp;ситуации</h2>
           <div class="chapter__block">
             <p class="chapter__label">Проблема</p>
-            <p>В библиотеке было много контента, но родителю было сложно быстро найти подходящее занятие под конкретную ситуацию</p>
+            <p>В&nbsp;библиотеке было много контента, но&nbsp;родителю было сложно быстро найти подходящее занятие под&nbsp;конкретную ситуацию</p>
           </div>
           <div class="chapter__block">
             <p class="chapter__label">Решение</p>
-            <p>Добавила фильтры по ситуации — дома, на прогулке, в дороге, без инвентаря — а также по длительности, возрасту и рейтингу</p>
+            <p>Добавила фильтры по&nbsp;ситуации — дома, на&nbsp;прогулке, в&nbsp;дороге, без&nbsp;инвентаря — а&nbsp;также по&nbsp;длительности, возрасту и&nbsp;рейтингу</p>
           </div>
           <div class="chapter__block">
             <p class="chapter__label">Результат</p>
-            <p>В отзывах появились положительные упоминания фильтров: родители отмечали, что стало проще находить игры под конкретную ситуацию, например для поездки</p>
+            <p>В&nbsp;отзывах появились положительные упоминания фильтров: родители отмечали, что&nbsp;стало проще находить игры под&nbsp;конкретную ситуацию, например для&nbsp;поездки</p>
           </div>
         </article>
       </section>
@@ -267,7 +270,7 @@
             <li class="tag tag--white">2024</li>
           </ul>
           <h2 class="next-case__title display">Uscode</h2>
-          <p class="next-case__desc">Учебная платформа для разработчиков и вайбкодеров.</p>
+          <p class="next-case__desc">Учебная платформа для&nbsp;разработчиков и&nbsp;вайбкодеров.</p>
           <img class="next-case__screen" src="./src/assets/img/next/uscode.webp" width="655" height="409" alt="" loading="lazy">
           <span class="btn next-case__btn">Смотреть кейс <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg></span>
         </a>
@@ -282,9 +285,9 @@
         <a class="pill-link contacts__pill--cv" href="#">CV</a>
         <a class="pill-link contacts__pill--in" href="#" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и возможные форматы взаимодействия</p>
+      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и&nbsp;возможные форматы взаимодействия</p>
       <a class="btn btn--grow contacts__cta" href="#" target="_blank" rel="noopener">
-        Написать в Telegram
+        Написать в&nbsp;Telegram
         <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
       </a>
     </section>

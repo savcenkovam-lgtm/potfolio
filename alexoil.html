@@ -12,13 +12,16 @@
 </head>
 <body class="page-case page-alexoil">
 
-  <!-- Стрелка: ↗ в обычном состоянии, → при наведении (см. UI kit) -->
+  <!-- Стрелки из компонентов Figma: ↗ в покое, → при наведении -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="arrow">
-      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path class="arrow-diag" d="M6 14 14 6M7.5 6H14v6.5"/>
-        <path class="arrow-right" d="M3 10h21M18 4l6 6-6 6"/>
-      </g>
+      <path class="arrow-diag" fill="currentColor" d="M5.1423 4.99442C5.1423 4.33175 5.67981 3.79439 6.34244 3.79427L14.5923 3.79358C15.2548 3.79358 15.7922 4.3312 15.7924 4.99373V13.2442C15.7922 13.9068 15.2548 14.4444 14.5923 14.4444C13.9297 14.4444 13.3924 13.9068 13.3921 13.2442V7.89121L5.42334 15.86C4.95472 16.3286 4.19464 16.3286 3.72601 15.86C3.25761 15.3913 3.25815 14.6319 3.7267 14.1633L11.6962 6.19388L6.34244 6.19457C5.67989 6.19444 5.14242 5.65698 5.1423 4.99442Z"/>
+      <path class="arrow-right" fill="currentColor" d="M17.9834 3.31941C18.452 2.85083 19.212 2.85094 19.6807 3.31941L25.5146 9.15242C25.7396 9.37738 25.8651 9.68291 25.8652 10.001C25.8652 10.3192 25.7395 10.6247 25.5146 10.8497L19.6807 16.6837C19.212 17.152 18.4519 17.1522 17.9834 16.6837C17.5149 16.2151 17.5151 15.4551 17.9834 14.9864L21.7686 11.2012H2.49902C1.83628 11.2012 1.29883 10.6638 1.29883 10.001C1.299 9.33846 1.83639 8.80183 2.49902 8.80183H21.7695L17.9834 5.01667C17.515 4.54809 17.515 3.788 17.9834 3.31941Z"/>
+    </symbol>
+    <symbol id="arrow-nav">
+      <!-- иконки меню нарисованы в квадрате 16, масштаб 1.25 — под общую сетку 20 -->
+      <g class="arrow-diag"><path transform="scale(1.25)" fill="currentColor" d="M12.9999 10.667C12.9997 11.2191 12.5521 11.667 11.9999 11.667C11.4477 11.667 11.0001 11.2191 10.9999 10.667V6.41406L4.70696 12.707C4.31643 13.0976 3.68342 13.0976 3.29289 12.707C2.90237 12.3165 2.90237 11.6835 3.29289 11.293L9.58586 5H5.33293C4.7808 4.99982 4.33293 4.55218 4.33293 4C4.33293 3.44782 4.7808 3.00018 5.33293 3H11.9999C12.5522 3 12.9999 3.44772 12.9999 4V10.667Z"/></g>
+      <g class="arrow-right"><path transform="scale(1.25)" fill="currentColor" d="M12.6498 13.4213C12.2592 13.8116 11.626 13.8118 11.2355 13.4213C10.8453 13.0309 10.8453 12.3976 11.2355 12.0071L14.2428 8.99986L1.34364 8.99985C0.791358 8.99986 0.34375 8.55225 0.34375 7.99996C0.343865 7.44777 0.79143 7.00007 1.34364 7.00007H14.2428L11.2362 3.99348C10.8457 3.60296 10.8457 2.96979 11.2362 2.57927C11.6268 2.18875 12.2599 2.18875 12.6504 2.57927L17.364 7.29285C17.7546 7.68338 17.7546 8.31654 17.364 8.70707L12.6498 13.4213Z"/></g>
     </symbol>
   </svg>
 
@@ -31,13 +34,13 @@
 
   <!-- Плавающая навигация -->
   <nav class="nav" id="site-nav" aria-label="Основная навигация">
-    <a class="nav__link" href="./index.html">На главную</a>
+    <a class="nav__link" href="./index.html">На&nbsp;главную</a>
     <a class="nav__link" href="#">CV</a>
     <a class="nav__link" href="#" target="_blank" rel="noopener">LinkedIn</a>
     <a class="nav__link" href="mailto:">Email</a>
     <a class="nav__link nav__link--accent" href="#" target="_blank" rel="noopener">
       Telegram
-      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
+      <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow-nav"/></svg>
     </a>
   </nav>
 
@@ -58,24 +61,24 @@
         <img class="scene__media" src="./src/assets/img/alexoil/hero-phone.webp" width="665" height="824" alt="Главный экран приложения AlexOil" fetchpriority="high">
 
         <h1 class="scene__title display">Alexoil</h1>
-        <p class="scene__desc">Приложение для водителей: находит ближайшую АЗС, оплачивает топливо с телефона и ведёт бонусы</p>
+        <p class="scene__desc">Приложение для&nbsp;водителей: находит ближайшую АЗС, оплачивает топливо с&nbsp;телефона и&nbsp;ведёт бонусы</p>
 
         <div class="card card--float card--bonus">
           <p class="card__title">Бонусы</p>
-          <p class="card__text">и история операций</p>
+          <p class="card__text">и&nbsp;история операций</p>
         </div>
         <div class="card card--float card--search">
           <p class="card__title">Поиск АЗС</p>
-          <p class="card__text">Ближайшая заправка на карте</p>
+          <p class="card__text">Ближайшая заправка на&nbsp;карте</p>
         </div>
 
         <div class="scene__stats">
           <div class="card card--stat">
             <p class="card__value">68 <svg viewBox="0 0 51 34" fill="none" aria-hidden="true"><path d="M6 17h38M32 6l12 11-12 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg> 81%</p>
-            <p class="card__text">Доведенных до конца заправок</p>
+            <p class="card__text">Доведенных до&nbsp;конца заправок</p>
           </div>
           <div class="card card--stat">
-            <p class="card__value">в 2 раза</p>
+            <p class="card__value">в&nbsp;2 раза</p>
             <p class="card__text">Быстрее оформление заказа</p>
           </div>
         </div>
@@ -88,13 +91,13 @@
       <section class="intro">
         <div class="intro__row">
           <h2 class="section-title section-title--xl">Задача</h2>
-          <p class="intro__content body-text text-2">Перенести процесс заправки и оплаты топлива в мобильное приложение, чтобы пользователь мог выбрать колонку, топливо и объём, оплатить заранее и управлять заправкой через телефон. Упростить оформление, сократить время заказа и снизить риск ошибок при нестабильной связи на АЗС</p>
+          <p class="intro__content body-text text-2">Перенести процесс заправки и&nbsp;оплаты топлива в&nbsp;мобильное приложение, чтобы пользователь мог выбрать колонку, топливо и&nbsp;объём, оплатить заранее и&nbsp;управлять заправкой через телефон. Упростить оформление, сократить время заказа и&nbsp;снизить риск ошибок при&nbsp;нестабильной связи на&nbsp;АЗС</p>
         </div>
         <div class="intro__row">
           <h2 class="section-title section-title--xl">Ограничения</h2>
           <ul class="intro__content chips">
-            <li class="chip">Предоплата и цена ошибки</li>
-            <li class="chip">Разное оборудование на АЗС</li>
+            <li class="chip">Предоплата и&nbsp;цена ошибки</li>
+            <li class="chip">Разное оборудование на&nbsp;АЗС</li>
             <li class="chip">Нестабильная связь</li>
             <li class="chip">Нет продуктовой аналитики</li>
             <li class="chip">Сжатые сроки</li>
@@ -108,11 +111,11 @@
         <div class="ps">
           <div class="ps__col">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Исходный сценарий с одной формой усложнял оформление и увеличивал время сборки заказа. Предоплата и нестабильная связь создавали риск повторных нажатий из-за задержки между списанием денег и запуском колонки</p>
+            <p class="body-text text-2">Исходный сценарий с&nbsp;одной формой усложнял оформление и&nbsp;увеличивал время сборки заказа. Предоплата и&nbsp;нестабильная связь создавали риск повторных нажатий из-за&nbsp;задержки между списанием денег и&nbsp;запуском колонки</p>
           </div>
           <div class="ps__col">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Разделила оформление на три шага: выбор колонки, топлива и объёма. Добавила подтверждение нахождения на АЗС, промежуточный экран оплаты с защитой от повторных нажатий и отдельные состояния заправки</p>
+            <p class="body-text text-2">Разделила оформление на&nbsp;три шага: выбор колонки, топлива и&nbsp;объёма. Добавила подтверждение нахождения на&nbsp;АЗС, промежуточный экран оплаты с&nbsp;защитой от&nbsp;повторных нажатий и&nbsp;отдельные состояния заправки</p>
           </div>
         </div>
         <div class="screens">
@@ -128,12 +131,12 @@
           <h2 class="section-title results__title">Результаты</h2>
           <div class="results__list">
             <div class="result">
-              <p class="result__label">Выросла доля заправок, доведённых до конца</p>
+              <p class="result__label">Выросла доля заправок, доведённых до&nbsp;конца</p>
               <p class="result__value">68% → 81%</p>
             </div>
             <div class="result">
-              <p class="result__label">Время оформления заказа сокращено с 50 до 20–25 секунд</p>
-              <p class="result__value">в 2 раза</p>
+              <p class="result__label">Время оформления заказа сокращено с&nbsp;50 до&nbsp;20–25 секунд</p>
+              <p class="result__value">в&nbsp;2 раза</p>
             </div>
           </div>
         </div>
@@ -144,15 +147,15 @@
         <div class="split__text">
           <div class="split__block">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Запустить заправку можно было удалённо, даже находясь не на АЗС, что создавало риск случайной блокировки колонки</p>
+            <p class="body-text text-2">Запустить заправку можно было удалённо, даже находясь не&nbsp;на&nbsp;АЗС, что&nbsp;создавало риск случайной блокировки колонки</p>
           </div>
           <div class="split__block">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Добавила подтверждение «Вы точно на АЗС?» перед началом заправки, чтобы исключить удалённый запуск</p>
+            <p class="body-text text-2">Добавила подтверждение «Вы точно на&nbsp;АЗС?» перед началом заправки, чтобы исключить удалённый запуск</p>
           </div>
           <div class="split__block">
             <h2 class="section-title">Результаты</h2>
-            <p class="result__note">Снизила риск случайной блокировки колонки и ошибочного запуска заправки вне АЗС</p>
+            <p class="result__note">Снизила риск случайной блокировки колонки и&nbsp;ошибочного запуска заправки вне АЗС</p>
           </div>
         </div>
         <div class="split__media">
@@ -165,11 +168,11 @@
         <div class="ps">
           <div class="ps__col">
             <h2 class="section-title">Проблема</h2>
-            <p class="body-text text-2">Регистрация была необходима для доступа к основным функциям приложения, поэтому важно было сделать этот шаг простым и понятным для пользователя</p>
+            <p class="body-text text-2">Регистрация была необходима для&nbsp;доступа к&nbsp;основным функциям приложения, поэтому важно было сделать этот шаг простым и&nbsp;понятным для&nbsp;пользователя</p>
           </div>
           <div class="ps__col">
             <h2 class="section-title">Решение</h2>
-            <p class="body-text text-2">Спроектировала сценарий регистрации с последовательным сбором данных пользователя и переходом к основным разделам приложения: профилю, карте АЗС и программе лояльности</p>
+            <p class="body-text text-2">Спроектировала сценарий регистрации с&nbsp;последовательным сбором данных пользователя и&nbsp;переходом к&nbsp;основным разделам приложения: профилю, карте АЗС и&nbsp;программе лояльности</p>
           </div>
         </div>
         <div class="screens">
@@ -191,10 +194,10 @@
             <li class="tag tag--white">2025</li>
           </ul>
           <h2 class="next-case__title display">Kidsup</h2>
-          <p class="next-case__desc">Приложение для родителей с развивающими занятиями, картой навыков и библиотекой игр для детей</p>
-          <img class="next-case__shot next-case__shot--1" src="./src/assets/img/next/kidsup-2.webp" width="238" height="491" alt="" loading="lazy">
-          <img class="next-case__shot next-case__shot--2" src="./src/assets/img/next/kidsup-1.webp" width="238" height="491" alt="" loading="lazy">
-          <img class="next-case__shot next-case__shot--3" src="./src/assets/img/next/kidsup-3.webp" width="238" height="491" alt="" loading="lazy">
+          <p class="next-case__desc">Приложение для&nbsp;родителей с&nbsp;развивающими занятиями, картой навыков и&nbsp;библиотекой игр для&nbsp;детей</p>
+          <img class="next-case__shot next-case__shot--1" src="./src/assets/img/next/kidsup-2.webp" width="238" height="422" alt="" loading="lazy">
+          <img class="next-case__shot next-case__shot--2" src="./src/assets/img/next/kidsup-1.webp" width="238" height="474" alt="" loading="lazy">
+          <img class="next-case__shot next-case__shot--3" src="./src/assets/img/next/kidsup-3.webp" width="238" height="422" alt="" loading="lazy">
           <span class="btn next-case__btn">Смотреть кейс <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg></span>
         </a>
       </section>
@@ -208,9 +211,9 @@
         <a class="pill-link contacts__pill--cv" href="#">CV</a>
         <a class="pill-link contacts__pill--in" href="#" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и возможные форматы взаимодействия</p>
+      <p class="contacts__lead">Буду рада обсудить дальнейшее сотрудничество и&nbsp;возможные форматы взаимодействия</p>
       <a class="btn btn--grow contacts__cta" href="#" target="_blank" rel="noopener">
-        Написать в Telegram
+        Написать в&nbsp;Telegram
         <svg class="icon-arrow" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#arrow"/></svg>
       </a>
     </section>
